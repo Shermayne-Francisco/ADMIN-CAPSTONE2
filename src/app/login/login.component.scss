@@ -1,0 +1,137 @@
+.container {
+    background: url('../../assets/PETLOGO.png');
+    background-repeat: no-repeat;
+    background-position:5em;
+    background-attachment:fixed;
+    background-color: #F3E3CD;
+    background-size: 60vw 50vh;
+    
+    
+    width: 100vw;
+    height: 100vh;
+   
+  
+    .row {
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      margin-bottom: 50px;
+      // background-color: #4af073e5;
+     
+      
+      @for $i from 1 through 12 {
+        .col-#{$i} {
+          grid-column: span #{$i};
+  
+          &:nth-child(2) {
+            background-color: #F4F4F4;
+            height: 100vh;
+            width: 100%;
+  
+            form {
+              
+              position: relative;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 70%;
+  
+              .title {
+                text-align: center;
+                margin-bottom: 50px;
+      
+                span {
+                  display: block;
+      
+                  &:nth-child(1){
+                    font-size: 25px;
+                    font-weight: 600;
+                    line-height: 1;
+                    color: rgb(0, 0, 0);
+                    margin: 10px 0;
+                  }
+      
+                  &:nth-child(2){
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: rgb(0, 0, 0);
+                  }
+      
+                  &:nth-child(3){
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: rgb(248, 248, 248);
+                    margin: 20px 0;
+                  }
+                }
+              }
+
+              
+  
+              mat-form-field, button {
+                 
+                width: 100%;
+            
+                .hide-button {
+                  // background-color: #09aa49b6;
+                  position: relative;
+                  bottom: 5px;
+                }
+      
+                input {
+                  
+                  padding: 4px 24px;
+                }
+              }
+              
+  
+              .sign-in {
+                margin: 8px 0;
+                padding: 6px 12px;
+                font-weight: 500;
+  
+                mat-spinner {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                }
+              }
+      
+              p {
+                position: relative;
+                top: 20px;
+                text-align: center;
+                font-weight: 600;
+                color: palevioletred;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  
+  footer {
+    text-align: center;
+  }
+  
+  
+  @media screen and (max-width: 900px) {
+    .container {
+      .row {
+        @for $i from 1 through 12 {
+          .col-#{$i} {
+  
+            &:nth-child(1) {
+              grid-column: span 0;
+            }
+  
+            &:nth-child(2) {
+              grid-column: span 12;
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+      <div class="col-8">
+        <!-- Insert tags here -->
+      </div>
+      <div class="col-4">
+        <form [formGroup]='loginForm' (ngSubmit)="loginForm.valid" >
+          <div class="title">
+              <span>PET HEALTH</span>
+              <span>INFORMATION SYSTEM AND SCHEDULER</span>
+              <span>Admin Portal</span>
+          </div>
+  
+          <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="faculty" required="true">
+              <mat-error *ngIf="!loginForm.value.faculty|| loginForm.invalid">Enter a valid Email</mat-error>
+          </mat-form-field>
+      
+          <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput  type="password" formControlName="password" required="true">
+              <button class="hide-button" mat-icon-button matSuffix [attr.aria-label]="'Hide password'">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="!loginForm.value.password">Password is required</mat-error>
+          </mat-form-field>
+      
+          <button class="sign-in" mat-raised-button type="submit" color="primary" [disabled]="clicked" (click)="login(); clicked = true">
+            <span *ngIf="clicked == false">Sign in</span>
+            <span *ngIf="clicked == true">Loading</span>
+            <mat-spinner [diameter]="30" *ngIf="clicked == true"></mat-spinner>
+          </button>
+          <!-- <footer>GCSAMP version 1.0.0</footer> -->
+        </form>
+      </div>
+    </div>
+  </div>
