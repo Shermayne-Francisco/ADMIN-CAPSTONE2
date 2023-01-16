@@ -1,20 +1,7 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.scss']
-// })
-// export class LoginComponent {
-
-// }
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-
 
 
 @Component({
@@ -23,52 +10,44 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
-  loginForm: FormGroup;
-  message: any;
   hide = true;
-  clicked = false;
 
-  constructor(private route: Router, private formBuilder:FormBuilder, private snackBar: MatSnackBar) { 
-    this.loginForm = this.formBuilder.group({
-      faculty: new FormControl('', [Validators.required,Validators.maxLength(50)]),
-      password: new FormControl('', [Validators.required,Validators.maxLength(50)]),
-    })
-  }
+  email = new FormControl('', [Validators.required, Validators.email]);
 
-  ngOnInit(): void {
-  }
-
-  login() {
-
-    interface Student{
-      email_fclty: number;
-      password_fclty: string;
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'Please enter your email';
     }
 
-
-    const data: Student = {
-      email_fclty: this.loginForm.value.faculty,
-      password_fclty: this.loginForm.value.password
-    }
-
-
-
-    // this.data.apiRequest("/login", data)
-    // .subscribe((res : any) => { 
-    //   if(res.status.remarks == "success"){
-    //     this.route.navigate(['/main/studlist'])
-    //     this.snackBar.open("Login Successfully", "",{
-    //       duration: 5000
-    //     })
-    //   }
-    //   else{
-    //     this.snackBar.open("Access Denied", "",{
-    //       duration: 5000
-    //     })
-    //   }
-    // }) 
+    return this.email.hasError('email') ? 'Sorry, not a valid email' : '';
+  }
 }
-}
+  // loginForm: FormGroup;
+  // message: any;
+  // hide = true;
+  // clicked = false;
+
+  // constructor(private route: Router, private formBuilder:FormBuilder, private snackBar: MatSnackBar) { 
+  //   this.loginForm = this.formBuilder.group({
+  //     admin: new FormControl('', [Validators.required,Validators.maxLength(50)]),
+  //     password: new FormControl('', [Validators.required,Validators.maxLength(50)]),
+  //   })
+  // }
+
+  // ngOnInit(): void {
+  // }
+
+  // login() {
+
+  //   interface Staff{
+  //     email_admin: number;
+  //     password_admin: string;
+  //   }
 
 
+  //   const data: Staff = {
+  //     email_admin: this.loginForm.value.admin,
+  //     password_admin: this.loginForm.value.password
+  //   }
+  // }
+// }
