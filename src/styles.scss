@@ -2,3 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// App palette
+// #144D2F - dark green
+// #BF622A - bronze/brown
+// #D1C770 - yellow gold
+// #F3E3CD - peach
+// #F4F4F4 - white
+// #000000 - black
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}

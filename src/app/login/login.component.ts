@@ -22,32 +22,3 @@ export class LoginComponent {
     return this.email.hasError('email') ? 'Sorry, not a valid email' : '';
   }
 }
-  // loginForm: FormGroup;
-  // message: any;
-  // hide = true;
-  // clicked = false;
-
-  // constructor(private route: Router, private formBuilder:FormBuilder, private snackBar: MatSnackBar) { 
-  //   this.loginForm = this.formBuilder.group({
-  //     admin: new FormControl('', [Validators.required,Validators.maxLength(50)]),
-  //     password: new FormControl('', [Validators.required,Validators.maxLength(50)]),
-  //   })
-  // }
-
-  // ngOnInit(): void {
-  // }
-
-  // login() {
-
-  //   interface Staff{
-  //     email_admin: number;
-  //     password_admin: string;
-  //   }
-
-
-  //   const data: Staff = {
-  //     email_admin: this.loginForm.value.admin,
-  //     password_admin: this.loginForm.value.password
-  //   }
-  // }
-// }

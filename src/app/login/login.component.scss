@@ -1,39 +1,13 @@
-// App palette
-// #144D2F - dark green
-// #BF622A - bronze/brown
-// #D1C770 - yellow gold
-// #F3E3CD - peach
-// #F4F4F4 - white
-// #000000 - black
-
 .container {
-    background: url('../../assets/aclogo01.png');
-    background-repeat: no-repeat;
-    background-position: right;
-    background-attachment:fixed;
-    background-color: #144D2F;
-    // background: linear-gradient(rgb(243, 227, 205), rgb(20, 77, 47));
-    background-size: 50vw 40vh;
-    width: 100vw;
-    height: 100vh;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(rgb(209, 199, 112), rgb(20, 77, 47));  
 }
 
 .login-card {
     width: 30%;
-    height: 50%;
-    // backdrop-filter: blur(5px);
-    background-color: #f3e3cdf3;
+    height: 80%;
+    background-color: rgb(243, 227, 205);
     border-radius: 10px;
     box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
-    position: absolute;
-    top: 50%;
-    left: 28%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 
     img {
         margin-left: 14%;
@@ -43,6 +17,7 @@
 
     mat-card-title {
         font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
         text-align: center;
         font-size: 28px;
     } 
@@ -61,11 +36,10 @@
 
     .login-btn {
         background: #F3E3CD;
-        background: linear-gradient(to right, #bf632ab8, rgba(20, 77, 47, 0.6));
+        background: linear-gradient(to right, rgba(209, 199, 112, 0.9), rgba(20, 77, 47, 0.6));
         width: 20%;
-        // margin: 0;
         position: absolute;
-        top: 84%;
+        top: 88%;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
@@ -74,9 +48,8 @@
 
 mat-card-content{
     position: absolute;
-    top: 55%;
+    top: 70%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);   
 }
-

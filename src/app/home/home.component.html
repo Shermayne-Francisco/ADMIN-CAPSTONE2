@@ -1,1 +1,21 @@
-<p>home works!</p>
+<mat-drawer-container class="container">
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <img src="/assets/aclogo02.png">
+
+        <ul>
+            <li routerLinkActive="list-item-active" routerLink="/main/client">
+              <mat-icon>forum</mat-icon>
+              <span>Clients</span>
+            </li>
+        </ul>
+
+        <mat-icon class="logout-btn" [routerLink]="['/login']">exit_to_app</mat-icon>
+    </mat-drawer>
+  
+    <mat-toolbar>
+        <button mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+  </mat-drawer-container>
+  
