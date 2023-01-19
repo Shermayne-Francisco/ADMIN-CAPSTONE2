@@ -1,13 +1,16 @@
 <mat-drawer-container class="container">
-    <mat-drawer #drawer class="sidenav" mode="side">
+    <mat-drawer #drawer class="sidenav" mode="side" opened="true">
         <img src="/assets/aclogo02.png">
 
-        <ul>
-            <li routerLinkActive="list-item-active" routerLink="/main/client">
-              <mat-icon>forum</mat-icon>
-              <span>Clients</span>
-            </li>
-        </ul>
+        <mat-nav-list>
+            <a [routerLink]="['/home/clients']" routerLinkActive="list-item-active" mat-list-item>
+              <span matListItemTitle>Clients</span>
+            </a>
+          
+            <a [routerLink]="['/login']" mat-list-item>
+              <span matListItemTitle>Appointments</span>
+            </a>
+          </mat-nav-list>
 
         <mat-icon class="logout-btn" [routerLink]="['/login']">exit_to_app</mat-icon>
     </mat-drawer>
