@@ -1,24 +1,27 @@
 <mat-drawer-container class="container">
-    <mat-drawer #drawer class="sidenav" mode="side" opened="true">
-        <img src="/assets/aclogo02.png">
+  <mat-drawer #drawer class="sidenav" mode="side" opened="true">
+      <img src="/assets/aclogo02.png">
 
-        <mat-nav-list>
-            <a [routerLink]="['./home/clients']"  mat-list-item>
-              <span matListItemTitle>Clients</span>
-            </a>
-          
-            <a [routerLink]="['/login']" mat-list-item>
-              <span matListItemTitle>Appointments</span>
-            </a>
-          </mat-nav-list>
+      <mat-nav-list>
+          <a [routerLink]="['/home/clients']" routerLinkActive="list-item-active" mat-list-item>
+            <span matListItemTitle>Clients</span>
+          </a>
+        
+          <a [routerLink]="['/login']" mat-list-item>
+            <span matListItemTitle>Appointments</span>
+          </a>
+        </mat-nav-list>
 
-        <mat-icon class="logout-btn" [routerLink]="['/login']">exit_to_app</mat-icon>
-    </mat-drawer>
+      <mat-icon class="logout-btn" [routerLink]="['/login']">exit_to_app</mat-icon>
+  </mat-drawer>
   
-    <mat-toolbar>
-        <button mat-icon-button (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
-    </mat-toolbar>
-  </mat-drawer-container>
-  
+  <mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="route">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

@@ -32,11 +32,11 @@
             margin-bottom: 15px;
         }
 
-        // .list-item-active {
-        //     background: #BF622A;
-        //     color: #F4F4F4;
-        //     border-radius: 5px;
-        // }
+        .list-item-active {
+            background: #BF622A;
+            color: #F4F4F4;
+            border-radius: 5px;
+        }
 
         span {
             font-family: Arial, Helvetica, sans-serif;
@@ -47,6 +47,6 @@
 }
 
 mat-toolbar {
-    background: transparent;
+    background: #D1C770;
     border-radius: 10px 0px 0px 10px;
 }
