@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent {
-
+  centered = false;
+  search : String ="";
 }

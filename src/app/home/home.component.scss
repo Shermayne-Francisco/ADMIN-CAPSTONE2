@@ -34,15 +34,18 @@
 
         .list-item-active {
             background: #BF622A;
-            color: #F4F4F4;
             border-radius: 5px;
+
+            span {
+                color: #F4F4F4;
+            }
         }
 
         span {
             font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
             font-size: 18px;
-        }   
+        }  
     }
 }
 

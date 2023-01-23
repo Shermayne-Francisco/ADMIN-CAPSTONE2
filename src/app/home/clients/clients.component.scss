@@ -1,0 +1,33 @@
+.search {
+    margin: 2% 0 0 70%;
+    width: 25%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.client-container {
+    margin: 2% 0 0 5%;
+}
+
+.card-container {
+    cursor: pointer;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
+
+    mat-card-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 3px 0 0 20px;
+    }
+
+    mat-card-actions {
+        margin-left: 74%;
+        padding-bottom: 22px;
+    }
+
+    mat-icon {
+        font-size: 25px;
+    }
+}
