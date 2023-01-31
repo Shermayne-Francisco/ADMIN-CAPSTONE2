@@ -5,8 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ClientsComponent } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
-import { ClientProfileComponent } from './home/client-profile/client-profile.component';
-import { ProfileComponent } from './home/clients/profile/profile.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 
 const routes: Routes = [
   { path: '', 
@@ -20,22 +19,16 @@ const routes: Routes = [
     component: HomeComponent,
       children: [
         { path: 'clients', 
-          component: ClientsComponent,
-
-          // children: [
-          //   { path: 'profile',
-          //     component: ProfileComponent,
-          //   }
-          // ]
+          component: ClientsComponent
         },
         
         { path: 'appointments', 
           component: AppointmentsComponent
         },
-        { path: 'client-profile', 
-          component: ClientProfileComponent
-        },
       ]
+  },
+  { path: 'client-profile', 
+    component: ClientProfileComponent
   }
 ];
 
