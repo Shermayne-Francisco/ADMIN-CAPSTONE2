@@ -20,8 +20,7 @@ const routes: Routes = [
       children: [
         { path: 'clients', 
           component: ClientsComponent
-        },
-        
+        },  
         { path: 'appointments', 
           component: AppointmentsComponent
         },

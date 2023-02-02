@@ -1,9 +1,34 @@
-<div class="container-one">
-    <mat-icon [routerLink]="['/home/clients']">arrow_back</mat-icon>
+<mat-drawer-container class="container">
+  <mat-drawer #drawer class="sidenav" mode="side" opened="true">
+      <img src="/assets/aclogo02.png">
 
+      <mat-nav-list>
+          <a  routerLinkActive="list-item-active" routerLink="/home/clients" mat-list-item>
+            <span matListItemTitle>Clients</span>
+          </a>
+        
+          <a [routerLink]="['/home/appointments']" routerLinkActive="list-item-active" mat-list-item>
+            <span matListItemTitle>Appointments</span>
+          </a>
+        </mat-nav-list>
+
+      <mat-icon class="logout-btn" [routerLink]="['/login']">exit_to_app</mat-icon>
+  </mat-drawer>
+  
+  <mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="container-one">
+    <mat-icon class="back" [routerLink]="['/home/clients']">arrow_back</mat-icon>
+  
     <mat-card class="client-profile">
+      <img mat-card-image src="./assets/avatar.png" width="35%">
         <mat-card-header>
           <mat-card-title>Shermayne Francisco</mat-card-title>
         </mat-card-header>
       </mat-card>
-</div>
+  
+  </div>
