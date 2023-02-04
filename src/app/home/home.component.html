@@ -12,7 +12,7 @@
           </a>
         </mat-nav-list>
 
-      <mat-icon class="logout-btn" [routerLink]="['/login']">exit_to_app</mat-icon>
+        <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
   </mat-drawer>
   
   <mat-toolbar>

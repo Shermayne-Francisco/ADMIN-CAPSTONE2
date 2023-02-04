@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,6 +9,12 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  constructor(
+    private router: Router
+  ){}
+
+
+
   hide = true;
 
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -19,4 +26,9 @@ export class LoginComponent {
 
     return this.email.hasError('email') ? 'Sorry, not a valid email' : '';
   }
+
+  login() {
+    this.router.navigate(['/home/clients']);
+          // console.log('hello');
+    };
 }
