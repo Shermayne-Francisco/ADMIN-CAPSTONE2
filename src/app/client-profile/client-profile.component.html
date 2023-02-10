@@ -21,32 +21,32 @@
     </button>
   </mat-toolbar>
 
-  <div class="container-one">
-    <mat-icon class="back" [routerLink]="['/home/clients']">arrow_back</mat-icon>
-  
-    <!-- <mat-card class="client-profile">
-      <img mat-card-image src="./assets/avatar.png" width="35%">
-        <mat-card-header>
-          <mat-card-title>Shermayne Francisco</mat-card-title>
-        </mat-card-header>
-      </mat-card> -->
+  <mat-icon class="back" [routerLink]="['/home/clients']">arrow_back</mat-icon>
 
-      <mat-card class="example-card">
-        <img mat-card-image src="./assets/avatar.png" width="30%">
+  <div class="profile-card">
+
+    <div class="column">
+      <mat-card class="client-profile">
+        <img mat-card-image src="./assets/avatar.png" width="30%"> 
         <mat-card-title>Shermayne OOI Francisco</mat-card-title>
-        <!-- <mat-list-item>Shermayne OOI Francisco</mat-list-item> -->
-        <mat-divider></mat-divider>
-        <!-- <mat-card-header> -->
-          
-          <!-- <mat-card-title>Shermayne OOI Francisco</mat-card-title> -->
-        <!-- </mat-card-header> -->
+
         <mat-card-content>
-          <h2>Contact</h2>
+          <h3>Contact</h3>
           <p>09705759514</p>
 
-          <h2>Address</h2>
+          <h3>Address</h3>
           <p>1128 Gamaza Hills, Calapacuan, Subic, Zambales</p>
         </mat-card-content>
       </mat-card>
-  
+    </div>
+
+    <div class="column">
+      <mat-card class="pets-list">
+        <mat-card-title>PETS</mat-card-title>
+
+        <button mat-button class="pet-btn" [routerLink]="['/home/appointments']">Akio</button>
+      </mat-card>
+    </div>
+
   </div>
+
