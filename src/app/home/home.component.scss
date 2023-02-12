@@ -1,7 +1,7 @@
 .container {
     background: linear-gradient(rgb(243, 227, 205) 50%, rgba(209, 199, 112, 0.8));
 }
-
+  
 .sidenav {
     padding: 30px;
     background-color: #D1C770;
@@ -51,5 +51,8 @@
 
 mat-toolbar {
     background: #D1C770;
-    // border-radius: 10px 0px 0px 10px;
+
+    .spacer {
+        flex: 1 1 auto;
+    }
 }
