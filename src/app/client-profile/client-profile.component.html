@@ -44,8 +44,15 @@
       <mat-card class="pets-list">
         <mat-card-title>PETS</mat-card-title>
 
-        <button mat-button class="pet-btn" [routerLink]="['/home/appointments']">Akio</button>
+        <button mat-raised-button class="pet-btn" [routerLink]="['/home/appointments']">Akio</button>
+
+        <button mat-fab extended class="pet-add">
+          <mat-icon>add_circle</mat-icon>
+          Add Pets
+        </button>
       </mat-card>
+
+     
     </div>
 
   </div>
