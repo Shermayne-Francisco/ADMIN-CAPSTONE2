@@ -54,10 +54,10 @@ mat-toolbar {
 }
 
 /**FOR CLIENT'S PROFILE**/
-.container-one {
-    background: linear-gradient(rgb(243, 227, 205) 50%, rgba(209, 199, 112, 0.8));
-    height: 100vh; 
-}
+// .container-one {
+//     background: linear-gradient(rgb(243, 227, 205) 50%, rgba(209, 199, 112, 0.8));
+//     height: 100vh; 
+// }
 
 .back {
     margin: 25px;
@@ -145,6 +145,7 @@ mat-toolbar {
 
     .pet-add:hover {
         background-color: #F3E3CD;
+        color: #000000;
     }
 }
 

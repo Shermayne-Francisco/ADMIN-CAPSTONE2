@@ -23,6 +23,7 @@
 
   <mat-icon class="back" [routerLink]="['/home/clients']">arrow_back</mat-icon>
 
+  <!-- FOR CLIENT'S PROFILE -->
   <div class="profile-card">
 
     <div class="column">
@@ -32,7 +33,7 @@
 
         <mat-card-content>
           <h3>Contact</h3>
-          <p>09705759514</p>
+          <p>+63 970 575 9514</p>
 
           <h3>Address</h3>
           <p>1128 Gamaza Hills, Calapacuan, Subic, Zambales</p>
@@ -40,16 +41,24 @@
       </mat-card>
     </div>
 
+    <!-- FOR ADDING PETS -->
     <div class="column">
       <mat-card class="pets-list">
         <mat-card-title>PETS</mat-card-title>
 
         <button mat-raised-button class="pet-btn" [routerLink]="['/home/appointments']">Akio</button>
 
-        <button mat-fab extended class="pet-add">
+        <button mat-fab extended (click)="addPets()" class="pet-add">
           <mat-icon>add_circle</mat-icon>
           Add Pets
         </button>
+
+        <!-- <h2 mat-dialog-title>Install Angular</h2>
+        <mat-dialog-content class="mat-typography">
+          <h3>Develop across all platforms</h3>
+          <p>Learn one way to build applications with Angular and reuse your code and abilities to build
+            apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>
+        </mat-dialog-content> -->
       </mat-card>
 
      
