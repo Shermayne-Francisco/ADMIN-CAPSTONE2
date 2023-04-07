@@ -1,11 +1,12 @@
 .container {
-    background: linear-gradient(rgb(209, 199, 112), rgb(20, 77, 47));  
+    background: linear-gradient(rgb(243, 227, 205) 30%, rgb(191, 98, 42));  
+    // background-color: rgb(243, 227, 205);
 }
 
 .login-card {
     width: 30%;
     height: 80%;
-    background-color: rgb(243, 227, 205);
+    background-color: #F3EFE0;
     border-radius: 10px;
     box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
 
