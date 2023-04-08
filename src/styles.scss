@@ -3,13 +3,16 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-// App palette
-// #144D2F - dark green
-// #BF622A - bronze/brown
-// #D1C770 - yellow gold
-// #F3E3CD - peach
-// #F4F4F4 - white
-// #000000 - black
+// .appcolorpalette {
+//     color: #144d2f; // dark green   :: rgb(20, 77, 47)
+//     color: #bf622a; // bronze/brown :: rgb(191, 98, 42)
+//     color: #D1C770; // yellow gold  :: rgb(209, 199, 112)
+//     color: #f3e3cd; // peach        :: rgb(243, 227, 205)
+//     color: #f4f4f4; // white        :: rgb(244, 244, 244)
+//     color: #000000; // black        :: rgb(0, 0, 0)
+//     color: #f3efe0; // cream        :: rgb(243, 239, 224)
+// }
+
 
 .container {
     display: flex;

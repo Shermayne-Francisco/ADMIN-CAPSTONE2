@@ -1,10 +1,11 @@
 .container {
-    background: linear-gradient(rgb(243, 227, 205) 50%, rgba(209, 199, 112, 0.8));
+    // background: linear-gradient(rgb(243, 227, 205) 50%, rgba(209, 199, 112, 0.8));
+    background-color: #F4F4F4;
 }
   
 .sidenav {
     padding: 30px;
-    background-color: #D1C770;
+    background: linear-gradient(rgb(243, 227, 205) 50%, rgb(209, 199, 112));
     // border-radius: 0px 15px 15px;
 
     img {
@@ -12,17 +13,23 @@
     }
 
     .logout-btn{
-        background-color: #BF622A;
-        width: 30px;
+        background-color: #e9e9e9;
+        width: 60px;
         margin: 20px;
         border-radius: 8px;
         position: absolute;
-        left: 60%;
-        bottom: 10px;
+        left: 25%;
+        bottom: 10%;
         padding: 10px;
-        color: #F4F4F4;
+        color: #bf622a;
         text-align: center;
         box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
+        cursor: pointer;
+    }
+
+    .logout-btn:hover {
+        background-color: rgb(243, 239, 224);
+        color: rgb(191, 98, 42, 0.5);
     }
 
     mat-nav-list {
@@ -50,7 +57,7 @@
 }
 
 mat-toolbar {
-    background: #D1C770;
+    background: rgb(209, 199, 112, 0.9);
 
     .spacer {
         flex: 1 1 auto;

@@ -14,25 +14,17 @@
 
         <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
   </mat-drawer>
-  
-  <!-- <mat-toolbar>
-    <button mat-icon-button (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button> -->
-    <p>
-      <mat-toolbar>
-        <button mat-icon-button (click)="drawer.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
 
-        <span>Admin Portal</span>
-        <span class="spacer"></span>
+  <p>
+    <mat-toolbar>
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
 
-        <!-- <span>Mariel Sicuan</span>
-        <img src="/assets/avatar.png" width="30px"> -->
-      </mat-toolbar>
-    </p>
-  <!-- </mat-toolbar> -->
+      <span>Admin Portal</span>
+      <span class="spacer"></span>
+    </mat-toolbar>
+  </p>
 
   <div class="route">
     <router-outlet></router-outlet>

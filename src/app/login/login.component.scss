@@ -1,6 +1,5 @@
 .container {
-    background: linear-gradient(rgb(243, 227, 205) 30%, rgb(191, 98, 42));  
-    // background-color: rgb(243, 227, 205);
+    background: linear-gradient(rgb(243, 227, 205) 30%, rgb(209, 199, 112));
 }
 
 .login-card {
@@ -40,8 +39,7 @@
     }
 
     .login-btn {
-        background: #F3E3CD;
-        background: linear-gradient(to right, rgba(209, 199, 112, 0.9), rgba(20, 77, 47, 0.6));
+        background: rgb(191, 98, 42);
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
         font-size: 12px;
@@ -52,6 +50,10 @@
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+    }
+
+    .login-btn:hover{
+        background: rgb(191, 98, 42, 0.8);
     }
 }
 
