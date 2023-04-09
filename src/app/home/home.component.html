@@ -1,28 +1,30 @@
 <mat-drawer-container class="container">
   <mat-drawer #drawer class="sidenav" mode="side" opened="true">
       <img src="/assets/aclogo02.png">
+      <h4>Animal's Choice</h4>
+      <h5>Veterinary Clinic</h5>
+      <hr color="#bf622a" width="180px">
 
       <mat-nav-list>
-          <a routerLinkActive="list-item-active" routerLink="/home/clients" mat-list-item>
-            <span matListItemTitle>Clients</span>
-          </a>
-        
-          <a [routerLink]="['/home/appointments']" routerLinkActive="list-item-active" mat-list-item>
-            <span matListItemTitle>Appointments</span>
-          </a>
-        </mat-nav-list>
+        <a routerLinkActive="list-item-active" routerLink="/home/clients" mat-list-item>
+          <span matListItemTitle>CLIENTS</span>
+        </a>
+      
+        <a [routerLink]="['/home/appointments']" routerLinkActive="list-item-active" mat-list-item>
+          <span matListItemTitle>APPOINTMENTS</span>
+        </a>
+      </mat-nav-list>
 
-        <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
+      <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
   </mat-drawer>
 
   <p>
     <mat-toolbar>
       <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
+        <mat-icon class="menu">menu</mat-icon>
       </button>
 
-      <span>Admin Portal</span>
-      <span class="spacer"></span>
+      <span class="adminportal">Admin Portal</span>
     </mat-toolbar>
   </p>
 

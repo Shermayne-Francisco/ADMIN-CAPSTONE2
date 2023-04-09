@@ -11,7 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ClientsComponent } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
-import { ClientProfileComponent } from './client-profile/client-profile.component';
+// import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { ClientsProfileComponent } from './home/clients/clients-profile/clients-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ClientProfileComponent } from './client-profile/client-profile.componen
     HomeComponent,
     ClientsComponent,
     AppointmentsComponent,
-    ClientProfileComponent,
+    // ClientProfileComponent,
+    ClientsProfileComponent,
   ],
   imports: [
     BrowserModule,
