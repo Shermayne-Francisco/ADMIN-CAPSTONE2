@@ -94,6 +94,12 @@ mat-toolbar {
 .back {
     margin: 25px;
     font-size: 30px;
+    color: #BF622A;
+}
+
+.back:hover {
+    transform: scale(0.9);
+    color: rgb(191, 98, 42, 0.5);
 }
 
 .profile-card {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-clients',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 export class ClientsComponent {
   centered = false;
   search : String ="";
+  disableSelect = new FormControl(false);
 }
