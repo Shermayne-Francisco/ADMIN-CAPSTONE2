@@ -5,41 +5,15 @@
 
 <div class="client-container">
   <div class="card-container" matRipple [matRippleCentered]="centered">
-    <mat-card mat-button [matMenuTriggerFor]="menu" class="client-list" > 
-      <!-- [routerLink]="['/clients-profile']" -->
+    <mat-card mat-button (click)="openDialog()" class="client-list">
       <mat-card-header>
-        <!-- <mat-card-title>Shermayne Francisco</mat-card-title> -->
-        
-          <!-- <mat-select>
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
-          </mat-select> -->
-
-          <!-- <button [matMenuTriggerFor]="menu"> -->
-            <mat-label>Shermayne OOI Francisco</mat-label>
-          <!-- </button> -->
-          <mat-menu #menu="matMenu" class="client-dropdown">
-            <button mat-menu-item disabled>
-              <h3>Contact Number</h3>
-              <p>+63 970 575 9514</p>
-            </button>
-            <button mat-menu-item disabled>
-              <h3>Address</h3>
-              <p>Olongapo City</p>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>notifications_off</mat-icon>
-              <span>Disable alerts</span>
-            </button>
-          </mat-menu>          
-
+        <mat-card-title>Shermayne OOI Francisco</mat-card-title>
       </mat-card-header>
     </mat-card>
   </div>
 
   <div class="card-container" matRipple [matRippleCentered]="centered">
-    <mat-card class="client-list" [routerLink]="['/clients-profile']">
+    <mat-card mat-button (click)="openDialog()" class="client-list">
       <mat-card-header>
         <mat-card-title>Mirasol Francisco</mat-card-title>
       </mat-card-header>

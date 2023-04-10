@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+// import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-profile',
@@ -7,15 +8,15 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./client-profile.component.scss']
 })
 export class ClientProfileComponent {
-  constructor(public dialog: MatDialog) {}
-
-  addPets() {
-    const dialogRef = this.dialog.open(ClientProfileComponent, {
-      
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  constructor(private router: Router, ){}
+  
+  logout(){
+    this.router.navigate(['/login']);
   }
+
 }
+
+  
+
+  
+

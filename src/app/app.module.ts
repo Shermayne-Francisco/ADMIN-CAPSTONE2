@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { MaterialModules } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ClientsComponent } from './home/clients/clients.component';
+import { ClientsComponent, ClientsDialog } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
-// import { ClientProfileComponent } from './client-profile/client-profile.component';
-import { ClientsProfileComponent } from './home/clients/clients-profile/clients-profile.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,9 @@ import { ClientsProfileComponent } from './home/clients/clients-profile/clients-
     LoginComponent,
     HomeComponent,
     ClientsComponent,
+    ClientsDialog,
     AppointmentsComponent,
-    // ClientProfileComponent,
-    ClientsProfileComponent,
+    ClientProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,8 @@ import { ClientsProfileComponent } from './home/clients/clients-profile/clients-
     BrowserAnimationsModule,
     MaterialModules,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

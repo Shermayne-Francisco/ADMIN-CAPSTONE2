@@ -1,0 +1,41 @@
+<div class="dialog-container">
+    <mat-dialog-actions align="end">
+        <mat-icon mat-dialog-close class="close-btn">close</mat-icon>
+    </mat-dialog-actions>
+
+    <mat-dialog-content class="dialog-content">
+        <div class="column">
+            <mat-card class="profile-card">
+                <img mat-card-image src="/assets/avatar.png" width="35%"> 
+                <h2 mat-dialog-title>Shermayne OOI Francisco</h2>
+            
+                <mat-card-content>
+                    <span>Contact</span>
+                    <p>+63 970 575 9514</p>
+
+                    <span>Address</span>
+                    <p>1128 Gamaza Hills, Calapacuan, Subic, Zambales</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="column">
+            <mat-card class="pet-card">
+                <mat-card-title>PETS</mat-card-title>        
+            </mat-card>
+            
+            <div class="pets-profile">
+                <button mat-raised-button class="pet-btn" [routerLink]="['/home/appointments']" mat-dialog-close>Akio</button>
+                <br><br>
+                <button mat-raised-button class="pet-btn" [routerLink]="['/home/appointments']" mat-dialog-close>Nazi</button>
+                <br><br>
+                <button mat-raised-button class="pet-btn" [routerLink]="['/home/appointments']" mat-dialog-close>Nazi</button><br><br>
+                <button mat-raised-button class="pet-btn" [routerLink]="['/home/appointments']" mat-dialog-close>Nazi</button><br><br>
+                <button mat-raised-button class="pet-btn" [routerLink]="['/home/appointments']" mat-dialog-close>Nazi</button><br><br>
+                <button mat-raised-button class="pet-btn" [routerLink]="['/home/appointments']" mat-dialog-close>Nazi</button>
+            </div>
+        </div>
+    </mat-dialog-content>
+</div>
+
+

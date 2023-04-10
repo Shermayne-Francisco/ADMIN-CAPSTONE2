@@ -13,11 +13,74 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 //     color: #f3efe0; // cream        :: rgb(243, 239, 224)
 // }
 
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-
     height: 100vh;
+}
+
+// FOR DIALOG CONTAINER
+.dialog-container {
+    background-color: #f3efe0;
+    
+    .close-btn {
+        font-size: 30px;
+        margin-right: 10px;
+        color: #bf622a;
+        cursor: pointer;
+    }
+    .close-btn:hover {
+        transform: scale(0.9);
+        color: rgb(191, 98, 42, 0.5);
+    }
+}
+
+// FOR DIALOG CONTENT
+.dialog-content {
+    margin-left: 4%;
+    max-height: 70%;
+    text-align: center;
+
+    .column {
+        float: left;
+    }
+}
+
+// FOR CLIENTS'S PROFILE CARD
+.profile-card {
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.25);
+    width: 80%;
+
+    img {
+        margin-left: 35%;
+        margin-top: 4%;
+    }
+
+    h2 {
+        margin-top: -5px;
+        font-size: 18px;
+    }
+        
+    span {
+        font-weight: bold;
+    }
+}
+
+// CLIENT'S PETS LIST
+.pet-card {
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgb(0, 0, 0, 0.25);
+    margin: 0 0 12px -12px;
+    width: 300px;
+
+    mat-card-title {
+        font-weight: bold;
+        padding: 5px;
+    }
+
+    .pet-profile {
+        margin-bottom: 8px;
+    }
 }
