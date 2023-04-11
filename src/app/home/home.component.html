@@ -18,15 +18,13 @@
       <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
   </mat-drawer>
 
-  <p>
-    <mat-toolbar>
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon class="menu">menu</mat-icon>
-      </button>
+  <mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon class="menu">menu</mat-icon>
+    </button>
 
-      <span class="adminportal">Admin Portal</span>
-    </mat-toolbar>
-  </p>
+    <span class="adminportal">Admin Portal</span>
+  </mat-toolbar>
 
   <div class="route">
     <router-outlet></router-outlet>

@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ClientsComponent, ClientsDialog } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
-import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { PetProfileComponent } from './pet-profile/pet-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { ClientProfileComponent } from './client-profile/client-profile.componen
     ClientsComponent,
     ClientsDialog,
     AppointmentsComponent,
-    ClientProfileComponent,
+    PetProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,75 @@
+<mat-drawer-container class="container">
+    <mat-drawer #drawer class="sidenav" mode="over">
+        <img src="/assets/aclogo02.png">
+        <h4>Animal's Choice</h4>
+        <h5>Veterinary Clinic</h5>
+        <hr color="#bf622a" width="180px">
+  
+        <mat-nav-list>
+          <a routerLinkActive="list-item-active" routerLink="/home/clients" mat-list-item>
+            <span matListItemTitle>CLIENTS</span>
+          </a>
+        
+          <a [routerLink]="['/home/appointments']" routerLinkActive="list-item-active" mat-list-item>
+            <span matListItemTitle>APPOINTMENTS</span>
+          </a>
+        </mat-nav-list>
+  
+        <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
+    </mat-drawer>
+  
+    <mat-toolbar>
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon class="menu">menu</mat-icon>
+      </button>
+  
+      <span class="adminportal">Admin Portal</span>
+    </mat-toolbar>
+
+<!-- PET PROFILE INFORMATION -->
+    <mat-icon class="back" [routerLink]="['/home/clients']">arrow_back</mat-icon>
+    <!-- <span>Shermayne OOI Francisco</span> -->
+
+    <div class="pet-container">
+        <div class="pet-content"> 
+            <mat-card class="profile-card">
+                <img mat-card-image src="/assets/avatar.png" width="30%"> 
+                <h2>Akio</h2>
+            
+                <mat-card-content>
+                    <span>Color/Markings</span>
+                    <p>Brown</p>
+
+                    <span>Breed</span>
+                    <p>Shih Tzu</p>
+
+                    <span>Birthdate</span>
+                    <p>03 June 2021</p>
+
+                    <span>Gender</span>
+                    <p>Male</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="pet-content">
+            <mat-card class="health-card">
+                <mat-card-title>HEALTH HISTORY</mat-card-title>   
+
+                <button mat-stroked-button class="health-btn" [routerLink]="['/home/clients']">
+                    Vaccination
+                </button>
+                <button mat-stroked-button class="health-btn" [routerLink]="['/home/clients']">
+                    Deworming
+                </button>
+                <button mat-stroked-button class="health-btn" [routerLink]="['/home/clients']">
+                    Heartworm Prevention
+                </button>
+        </mat-card>
+
+        <button mat-raised-button class="create-btn" [routerLink]="['/home/clients']">
+            Create
+        </button>
+        </div>
+    </div>
+</mat-drawer-container>
