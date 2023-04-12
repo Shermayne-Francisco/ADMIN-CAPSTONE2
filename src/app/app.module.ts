@@ -12,8 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ClientsComponent, ClientsDialog } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
-import { PetProfileComponent } from './pet-profile/pet-profile.component';
-
+import { PetProfileComponent, HealthinfoDialog, SchedDialog} from './pet-profile/pet-profile.component';
+// 
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +23,8 @@ import { PetProfileComponent } from './pet-profile/pet-profile.component';
     ClientsDialog,
     AppointmentsComponent,
     PetProfileComponent,
+    HealthinfoDialog,
+    SchedDialog,
   ],
   imports: [
     BrowserModule,

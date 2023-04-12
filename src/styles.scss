@@ -20,6 +20,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: 100vh;
 }
 
+/** FOR CLIENTS DIALOG **/
 // CLOSE ACTION
 .close-bar {
     background-color: #f3efe0;
@@ -91,3 +92,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         color: #f3efe0;
     }
 }
+
+/** FOR HEALTH INFO AND SCHED DIALOG **/
+.submit-cancel {
+    background-color: #f3efe0;
+
+    .submit-btn:hover {
+        background-color: rgb(209, 199, 112, 0.7);
+        color: #f3efe0;
+    }
+    
+    .cancel-btn:hover {
+        background-color: rgb(209, 199, 112, 0.7);
+        color: #f3efe0;
+    }
+}
+
+
+    

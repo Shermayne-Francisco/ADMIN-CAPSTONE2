@@ -28,13 +28,12 @@
 
 <!-- PET PROFILE INFORMATION -->
     <mat-icon class="back" [routerLink]="['/home/clients']">arrow_back</mat-icon>
-    <!-- <span>Shermayne OOI Francisco</span> -->
 
     <div class="pet-container">
         <div class="pet-content"> 
             <mat-card class="profile-card">
                 <img mat-card-image src="/assets/avatar.png" width="30%"> 
-                <h2>Akio</h2>
+                <h1>Akio</h1>
             
                 <mat-card-content>
                     <span>Color/Markings</span>
@@ -52,24 +51,87 @@
             </mat-card>
         </div>
 
+        <!-- PET HEALTH INFORMATION -->
         <div class="pet-content">
             <mat-card class="health-card">
-                <mat-card-title>HEALTH HISTORY</mat-card-title>   
-
-                <button mat-stroked-button class="health-btn" [routerLink]="['/home/clients']">
-                    Vaccination
-                </button>
-                <button mat-stroked-button class="health-btn" [routerLink]="['/home/clients']">
-                    Deworming
-                </button>
-                <button mat-stroked-button class="health-btn" [routerLink]="['/home/clients']">
-                    Heartworm Prevention
-                </button>
-        </mat-card>
-
-        <button mat-raised-button class="create-btn" [routerLink]="['/home/clients']">
-            Create
-        </button>
+                <mat-card-title>HEALTH HISTORY</mat-card-title>
+            </mat-card>
         </div>
-    </div>
+
+            <!-- VACCINATION CARD -->
+            <mat-card class="vaxx-card">
+                <mat-card-title>Vaccination</mat-card-title>
+                <mat-grid-list cols="3" rowHeight="6:1" class="col-title"> 
+                    <mat-grid-tile>Name</mat-grid-tile>
+                    <mat-grid-tile>Weight</mat-grid-tile>
+                    <mat-grid-tile>Date</mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
+                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">29 Aug 2022</mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
+                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">29 Aug 2022</mat-grid-tile>
+                </mat-grid-list>
+            </mat-card>
+
+            <!-- DEWORMING CARD -->
+            <mat-card class="deworm-card">
+                <mat-card-title>Deworming</mat-card-title>
+                <mat-grid-list cols="3" rowHeight="6:1" class="col-title"> 
+                    <mat-grid-tile>Name</mat-grid-tile>
+                    <mat-grid-tile>Weight</mat-grid-tile>
+                    <mat-grid-tile>Date</mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
+                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">29 Aug 2022</mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
+                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">29 Aug 2022</mat-grid-tile>
+                </mat-grid-list>
+            </mat-card>
+
+            <!-- HEARTWORM PREVENTION CARD -->
+            <mat-card class="heartworm-card">
+                <mat-card-title>Heartworm Prevention</mat-card-title>
+                <mat-grid-list cols="3" rowHeight="6:1" class="col-title"> 
+                    <mat-grid-tile>Name</mat-grid-tile>
+                    <mat-grid-tile>Weight</mat-grid-tile>
+                    <mat-grid-tile>Date</mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
+                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">29 Aug 2022</mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
+                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
+                    <mat-grid-tile class="tile-content">29 Aug 2022</mat-grid-tile>
+                </mat-grid-list>
+            </mat-card>
+        
+        <div class="pet-content">
+            <button mat-raised-button class="healthinfo-btn" (click)="addHealth()">
+                Add Health Info 
+            </button>
+            <button mat-raised-button class="sched-btn" (click)="setSched()">
+                Set an Appointment 
+            </button>
+        </div>
+        
+    </div> 
+    
+    
 </mat-drawer-container>
+

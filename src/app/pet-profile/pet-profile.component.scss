@@ -1,5 +1,5 @@
 .container {
-    background: linear-gradient(rgb(243, 227, 205) 50%, rgba(209, 199, 112, 0.6));
+    background: linear-gradient(rgb(243, 227, 205) 50%, rgb(209, 199, 112, 0.6));
 }
   
 .sidenav {
@@ -103,7 +103,7 @@ mat-toolbar {
 }
 
 .pet-container {
-    margin: 3% 0 0 8%;
+    margin: 3.5% 0 0 10%;
     text-align: center;
 
     .pet-content {
@@ -115,22 +115,36 @@ mat-toolbar {
     background-color: #f3efe0;
     border-radius: 10px;
     box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
-    width: 30vw;
-    margin-right: 10%;
+    width: 25vw;
+    margin-right: 100px;
+
+    h1 {
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    span {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 16px;
+        margin-top: 3px;
+    }
 }
 
-// HEALTH INFORMATION CARD
+// PET HEALTH INFORMATION CARD
 .health-card {
     background-color: #f3efe0;
     border-radius: 10px;
-    box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
-    margin-left: 100px;
-    width: 40vw;
+    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
+    margin-left: 82px;
+    width: 30vw;
+    position: absolute;
+    top: 18%;
 
     mat-card-title {
-        font-weight: bold;
+        font-weight: 500;
         padding: 10px;
-        margin-bottom: 15px;
     }
 
     .health-btn {
@@ -143,4 +157,79 @@ mat-toolbar {
         background-color: rgb(191, 98, 42, 0.8);
         color: #f3efe0;
     }
+}
+
+// VACCINATION CARD
+.vaxx-card {
+    background-color: #f3efe0;
+    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
+    margin-left: 100px;
+    padding: 10px;
+    width: 45%;
+
+    .col-title {
+        mat-grid-tile {
+            background-color: rgb(209, 199, 112, 0.6);
+            font-size: 16px;
+            font-weight: 500;
+            font-style: italic;
+        }
+    }
+}
+
+// DEWORMING CARD
+.deworm-card {
+    background-color: #f3efe0;
+    box-shadow: 2px 2px 3px 0 rgb(0, 0, 0, 0.25);
+    margin: 15px 0 0 100px;
+    padding: 10px;
+    width: 45%;
+
+    .col-title {
+        mat-grid-tile {
+            background-color: rgb(191, 98, 42, 0.6);
+            font-size: 16px;
+            font-weight: 500;
+            font-style: italic;
+        }
+    }
+}
+
+// HEARTWORM PREVENTION CARD
+.heartworm-card {
+    background-color: #f3efe0;
+    box-shadow: 2px 2px 3px 0 rgb(0, 0, 0, 0.25);
+    margin: 15px 0 0 100px;
+    padding: 10px;
+    width: 45%;
+
+    .col-title {
+        mat-grid-tile {
+            background-color: rgb(20, 77, 47, 0.6);
+            font-size: 16px;
+            font-weight: 500;
+            font-style: italic;
+        }
+    }
+}
+
+// HEALTH AND SCHED BUTTON
+.healthinfo-btn {
+    position: absolute;
+    left: 86.2%;
+    top: 30%;
+}
+.healthinfo-btn:hover {
+    background-color: rgb(191, 98, 42, 0.8);
+    color: #f3efe0;
+}
+
+.sched-btn {
+    position: absolute;
+    left: 85.3%;
+    top: 37%;
+}
+.sched-btn:hover {
+    background-color: rgb(209, 199, 112, 0.8);
+    color: #f3efe0;
 }

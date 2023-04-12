@@ -22,19 +22,10 @@
             </mat-card-content>
         </mat-card>
     </div>
-
-    <div class="dialog-content">
-        <mat-card class="pet-card">
-            <mat-card-title>PETS</mat-card-title>   
-
-            <button mat-stroked-button class="pet-btn" [routerLink]="['/pet-profile']" mat-dialog-close>
-                Akio
-            </button>
-            <button mat-stroked-button class="pet-btn" [routerLink]="['/pet-profile']" mat-dialog-close>
-                Nazi
-            </button>
-    </mat-card>
-    </div>
 </mat-dialog-content>
 
-
+<mat-dialog-actions align="end" class="submit-cancel">
+    <!-- <mat-icon mat-dialog-close class="submit-btn">close</mat-icon> -->
+    <button mat-raised-button class="submit-btn">SUBMIT</button>
+    <button mat-raised-button class="cancel-btn">CANCEL</button>
+</mat-dialog-actions>
