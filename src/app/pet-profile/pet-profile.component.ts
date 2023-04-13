@@ -1,6 +1,16 @@
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+
+// FOR HEALTH INFO DIALOG
+interface Vaccine {
+  name: string;
+}
+
+// interface Appoint {
+//   name: string;
+// }
 
 @Component({
   selector: 'app-pet-profile',
@@ -31,14 +41,30 @@ export class PetProfileComponent {
     }
 }
 
+// TYPE OF VACCINE OPTIONS
 @Component({
   selector: 'healthinfo-dialog',
   templateUrl: 'healthinfo-dialog.html',
 })
-export class HealthinfoDialog {}
+export class HealthinfoDialog {
+  typeControl = new FormControl<Vaccine | null>(null, Validators.required);
+  vaccines: Vaccine[] = [
+    {name: 'Vaccination'},
+    {name: 'Deworming'},
+    {name: 'Heartworm Prevention'},
+  ];
+}
 
+// SCHED DIALOG
 @Component({
   selector: 'sched-dialog',
   templateUrl: 'sched-dialog.html',
 })
-export class SchedDialog {}
+export class SchedDialog {
+  typeControl = new FormControl<Vaccine | null>(null, Validators.required);
+  vaccines: Vaccine[] = [
+    {name: 'Vaccination'},
+    {name: 'Deworming'},
+    {name: 'Heartworm Prevention'},
+  ];
+}
