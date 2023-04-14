@@ -1,5 +1,6 @@
 <!-- CLOSE ACTION -->
 <mat-dialog-actions align="end" class="close-bar">
+    <h2 mat-dialog-title>Health Information</h2>
     <mat-icon mat-dialog-close class="close-btn">close</mat-icon>
 </mat-dialog-actions>
 
@@ -32,10 +33,10 @@
         
         <mat-form-field color="accent" appearance="outline">
             <mat-label>Date</mat-label>
-            <input matInput [matDatepicker]="picker" required>
-            <mat-hint>MM/DD/YYYY</mat-hint>
+            <input matInput [matDatepicker]="picker" disabled required>
+            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker #picker disabled="false"></mat-datepicker>
         </mat-form-field>
     </div>
 </mat-dialog-content>

@@ -1,5 +1,8 @@
+
+
 <!-- CLOSE ACTION -->
 <mat-dialog-actions align="end" class="close-bar">
+    <h2 mat-dialog-title>Set an Appointment</h2>
     <mat-icon mat-dialog-close class="close-btn">close</mat-icon>
 </mat-dialog-actions>
 
@@ -13,15 +16,15 @@
                 <mat-option *ngFor="let vaccine of vaccines" [value]="vaccine">{{vaccine.name}}</mat-option>
             </mat-select>
 
-            <mat-error *ngIf="typeControl.hasError('required')">Please choose the type of vaccine</mat-error>
+            <mat-error *ngIf="typeControl.hasError('required')">This field is required.</mat-error>
         </mat-form-field>
 
         <mat-form-field color="accent" appearance="outline">
             <mat-label>Date</mat-label>
-            <input matInput [matDatepicker]="picker" required>
-            <mat-hint>MM/DD/YYYY</mat-hint>
+            <input matInput [matDatepicker]="picker" disabled required>
+            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker #picker disabled="false"></mat-datepicker>
         </mat-form-field>
     </div>
 </mat-dialog-content>

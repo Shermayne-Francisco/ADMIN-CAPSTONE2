@@ -25,9 +25,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .close-bar {
     background-color: #f3efe0;
     
+    h2 {
+        right: 50%;
+    }
+    
     .close-btn {
         font-size: 30px;
         margin-right: 10px;
+        padding-bottom: 18px;
         color: #bf622a;
         cursor: pointer;
     }

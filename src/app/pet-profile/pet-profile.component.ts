@@ -8,10 +8,6 @@ interface Vaccine {
   name: string;
 }
 
-// interface Appoint {
-//   name: string;
-// }
-
 @Component({
   selector: 'app-pet-profile',
   templateUrl: './pet-profile.component.html',
