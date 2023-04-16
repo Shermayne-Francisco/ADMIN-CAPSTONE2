@@ -14,7 +14,7 @@
                 <mat-option *ngFor="let vaccine of vaccines" [value]="vaccine">{{vaccine.name}}</mat-option>
             </mat-select>
 
-            <mat-error *ngIf="typeControl.hasError('required')">Please choose the type of vaccine</mat-error>
+            <mat-error *ngIf="typeControl.hasError('required')">This field is required.</mat-error>
         </mat-form-field>
 
         <p>
