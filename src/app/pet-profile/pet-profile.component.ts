@@ -14,6 +14,9 @@ interface Vaccine {
   styleUrls: ['./pet-profile.component.scss']
 })
 export class PetProfileComponent {
+  displayedColumns = ['name', 'weight', 'date'];
+  dataSource = ELEMENT_DATA;
+
   constructor(private router: Router, public dialog: MatDialog){}
 
     logout(){
@@ -35,7 +38,23 @@ export class PetProfileComponent {
         console.log(`Dialog result: ${result}`);
       });
     }
+    
 }
+
+
+
+export interface TypeElement {
+  name: string;
+  weight: number;
+  date: string;
+}
+
+const ELEMENT_DATA: TypeElement[] = [
+  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
+  {name: 'NobivacNobivac', weight: 6.8, date: '4/23/2023'},
+  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
+  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
+];
 
 // TYPE OF VACCINE OPTIONS
 @Component({
@@ -63,4 +82,6 @@ export class SchedDialog {
     {name: 'Deworming'},
     {name: 'Heartworm Prevention'},
   ];
+
+  myDatePicker: any;
 }

@@ -14,6 +14,16 @@ import { ClientsComponent, ClientsDialog } from './home/clients/clients.componen
 import { AppointmentsComponent } from './home/appointments/appointments.component';
 import { PetProfileComponent, HealthinfoDialog, SchedDialog} from './pet-profile/pet-profile.component';
 // 
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +43,14 @@ import { PetProfileComponent, HealthinfoDialog, SchedDialog} from './pet-profile
     MaterialModules,
     ReactiveFormsModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+
+    MatDatepickerModule,
+    MatInputModule,
+
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

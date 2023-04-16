@@ -103,7 +103,7 @@ mat-toolbar {
 }
 
 .pet-container {
-    margin: 3.5% 0 0 10%;
+    margin: 2% 0 0 10%;
     text-align: center;
 
     .pet-content {
@@ -140,22 +140,11 @@ mat-toolbar {
     margin-left: 82px;
     width: 30vw;
     position: absolute;
-    top: 18%;
+    top: 15%;
 
     mat-card-title {
         font-weight: 500;
         padding: 10px;
-    }
-
-    .health-btn {
-        margin: 0 20px 8px 20px;
-        padding: 10px;
-        background-color: rgb(209, 199, 112, 0.7);
-    }
-
-    .health-btn:hover{
-        background-color: rgb(191, 98, 42, 0.8);
-        color: #f3efe0;
     }
 }
 
@@ -167,14 +156,23 @@ mat-toolbar {
     padding: 10px;
     width: 45%;
 
+    mat-card-subtitle {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        margin-top: -6px;
+    }
+
+    mat-grid-list {
+        width: 97%;
+    }
+
     .col-title {
         mat-grid-tile {
             background-color: rgb(209, 199, 112, 0.6);
-            font-size: 16px;
-            font-weight: 500;
-            font-style: italic;
         }
     }
+
 }
 
 // DEWORMING CARD
@@ -185,12 +183,20 @@ mat-toolbar {
     padding: 10px;
     width: 45%;
 
+     mat-card-subtitle {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        margin-top: -6px;
+    }
+
+    mat-grid-list {
+        width: 97%;
+    }
+
     .col-title {
         mat-grid-tile {
             background-color: rgb(191, 98, 42, 0.6);
-            font-size: 16px;
-            font-weight: 500;
-            font-style: italic;
         }
     }
 }
@@ -203,13 +209,44 @@ mat-toolbar {
     padding: 10px;
     width: 45%;
 
+     mat-card-subtitle {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        margin-top: -6px;
+    }
+
+    mat-grid-list {
+        width: 97%;
+    }
+
     .col-title {
         mat-grid-tile {
             background-color: rgb(20, 77, 47, 0.6);
-            font-size: 16px;
-            font-weight: 500;
-            font-style: italic;
         }
+    }
+}
+
+// MAT GRID TILE
+.col-title {
+    mat-grid-tile {
+        font-size: 14px;
+        font-weight: 500;
+        font-style: italic;
+    }
+}
+
+.table-content {
+    height: 100px;
+    overflow: auto;
+
+    td {
+        // background-color: #f3efe0;
+        height: 5s0px;
+    }
+
+    .date {
+        text-align: center;
     }
 }
 
@@ -233,3 +270,6 @@ mat-toolbar {
     background-color: rgb(209, 199, 112, 0.8);
     color: #f3efe0;
 }
+
+
+

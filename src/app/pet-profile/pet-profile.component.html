@@ -18,7 +18,7 @@
         <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
     </mat-drawer>
   
-    <mat-toolbar>
+    <mat-toolbar position="sticky">
       <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon class="menu">menu</mat-icon>
       </button>
@@ -60,65 +60,89 @@
 
             <!-- VACCINATION CARD -->
             <mat-card class="vaxx-card">
-                <mat-card-title>Vaccination</mat-card-title>
-                <mat-grid-list cols="3" rowHeight="6:1" class="col-title"> 
+                <mat-card-subtitle>Vaccination</mat-card-subtitle>
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-title"> 
                     <mat-grid-tile>Name</mat-grid-tile>
                     <mat-grid-tile>Weight</mat-grid-tile>
                     <mat-grid-tile>Date</mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
-                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">4/12/2022</mat-grid-tile>
-                </mat-grid-list>
-                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
-                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">4/12/2022</mat-grid-tile>
-                </mat-grid-list>
+                <!-- VACCINATION TABLE -->
+                <section class="table-content" tabindex="0">
+                    <table mat-table [dataSource]="dataSource">
+                      <ng-container matColumnDef="name">
+                        <td mat-cell *matCellDef="let element" class="name"> {{element.name}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="weight">
+                        <td mat-cell *matCellDef="let element" class="weight"> {{element.weight}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="date">
+                        <td mat-cell *matCellDef="let element" class="date"> {{element.date}} </td>
+                      </ng-container>
+                  
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  </section>
             </mat-card>
 
             <!-- DEWORMING CARD -->
             <mat-card class="deworm-card">
-                <mat-card-title>Deworming</mat-card-title>
-                <mat-grid-list cols="3" rowHeight="6:1" class="col-title"> 
+                <mat-card-subtitle>Deworming</mat-card-subtitle>
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-title"> 
                     <mat-grid-tile>Name</mat-grid-tile>
                     <mat-grid-tile>Weight</mat-grid-tile>
                     <mat-grid-tile>Date</mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
-                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">4/12/2022</mat-grid-tile>
-                </mat-grid-list>
-                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
-                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">4/12/2022</mat-grid-tile>
-                </mat-grid-list>
+                <!-- DEWORMING TABLE -->
+                <section class="table-content" tabindex="0">
+                    <table mat-table [dataSource]="dataSource">
+                      <ng-container matColumnDef="name">
+                        <td mat-cell *matCellDef="let element" class="name"> {{element.name}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="weight">
+                        <td mat-cell *matCellDef="let element" class="weight"> {{element.weight}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="date">
+                        <td mat-cell *matCellDef="let element" class="date"> {{element.date}} </td>
+                      </ng-container>
+                  
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  </section>
             </mat-card>
 
             <!-- HEARTWORM PREVENTION CARD -->
             <mat-card class="heartworm-card">
-                <mat-card-title>Heartworm Prevention</mat-card-title>
-                <mat-grid-list cols="3" rowHeight="6:1" class="col-title"> 
+                <mat-card-subtitle>Heartworm Prevention</mat-card-subtitle>
+                <mat-grid-list cols="3" rowHeight="8:1" class="col-title"> 
                     <mat-grid-tile>Name</mat-grid-tile>
                     <mat-grid-tile>Weight</mat-grid-tile>
                     <mat-grid-tile>Date</mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
-                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">4/12/2022</mat-grid-tile>
-                </mat-grid-list>
-                <mat-grid-list cols="3" rowHeight="8:1" class="col-content"> 
-                    <mat-grid-tile class="tile-content">Nobivac</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">6.3</mat-grid-tile>
-                    <mat-grid-tile class="tile-content">4/12/2022</mat-grid-tile>
-                </mat-grid-list>
+                <!-- HEARTWORM TABLE -->
+                <section class="table-content" tabindex="0">
+                    <table mat-table [dataSource]="dataSource">
+                      <ng-container matColumnDef="name">
+                        <td mat-cell *matCellDef="let element" class="name"> {{element.name}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="weight">
+                        <td mat-cell *matCellDef="let element" class="weight"> {{element.weight}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="date">
+                        <td mat-cell *matCellDef="let element" class="date"> {{element.date}} </td>
+                      </ng-container>
+                  
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  </section>
             </mat-card>
         
         <div class="pet-content">

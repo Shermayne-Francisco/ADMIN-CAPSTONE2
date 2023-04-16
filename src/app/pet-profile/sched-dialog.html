@@ -19,12 +19,20 @@
             <mat-error *ngIf="typeControl.hasError('required')">This field is required.</mat-error>
         </mat-form-field>
 
-        <mat-form-field color="accent" appearance="outline">
+        <!-- <mat-form-field color="accent" appearance="outline">
             <mat-label>Date</mat-label>
             <input matInput [matDatepicker]="picker" disabled required>
-            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+            <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker disabled="false"></mat-datepicker>
+        </mat-form-field> -->
+
+        <mat-form-field color="accent" appearance="outline">
+            <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date & time" [(ngModel)]="myDatePicker" required>
+            
+            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+        
+            <ngx-mat-datetime-picker #picker [enableMeridian]="true"></ngx-mat-datetime-picker>
         </mat-form-field>
     </div>
 </mat-dialog-content>
