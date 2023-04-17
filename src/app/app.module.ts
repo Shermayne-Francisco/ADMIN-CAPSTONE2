@@ -15,7 +15,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule,
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ClientsComponent, ClientsDialog } from './home/clients/clients.component';
-import { AppointmentsComponent } from './home/appointments/appointments.component';
+import { AppointmentsComponent, PendingDialog, RequestsDialog} from './home/appointments/appointments.component';
 import { PetProfileComponent, HealthinfoDialog, SchedDialog} from './pet-profile/pet-profile.component';
 
 @NgModule({
@@ -26,6 +26,8 @@ import { PetProfileComponent, HealthinfoDialog, SchedDialog} from './pet-profile
     ClientsComponent,
     ClientsDialog,
     AppointmentsComponent,
+    PendingDialog,
+    RequestsDialog,
     PetProfileComponent,
     HealthinfoDialog,
     SchedDialog,

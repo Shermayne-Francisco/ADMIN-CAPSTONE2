@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-appointments',
@@ -9,19 +10,37 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 
 export class AppointmentsComponent implements AfterViewInit {
+  // FOR ALL APPOINTMENTS PAGINATION
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  paginator: any;
 
-  // @ViewChild(MatPaginator)
-  // paginator: MatPaginator = new MatPaginator;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
+  // FOR PENDING AND REQUESTS DIALOG
+  constructor(public dialog: MatDialog){}
+    pending() {
+      const dialogRef = this.dialog.open(PendingDialog)
+        
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+
+    requests() {
+      const dialogRef = this.dialog.open(RequestsDialog)
+        
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
 }
 
+// CONTENTS OF ALL APPOINTMENTS PAGINATION
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -51,3 +70,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
 ];
+
+@Component({
+  selector: 'pending-dialog',
+  templateUrl: 'pending-dialog.html',
+})
+export class PendingDialog {
+}
+
+@Component({
+  selector: 'requests-dialog',
+  templateUrl: 'requests-dialog.html',
+})
+export class RequestsDialog {
+}

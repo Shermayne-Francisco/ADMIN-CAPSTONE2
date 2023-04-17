@@ -56,7 +56,7 @@ const ELEMENT_DATA: TypeElement[] = [
   {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
 ];
 
-// TYPE OF VACCINE OPTIONS
+// TYPE OF VACCINE OPTIONS DIALOG
 @Component({
   selector: 'healthinfo-dialog',
   templateUrl: 'healthinfo-dialog.html',
