@@ -1,6 +1,6 @@
 // SCHEDULE CONTAINER
 .sched-container {
-    margin: 2% 0 0 8%;
+    margin: 3% 0 0 8%;
 
     .sched-content {
         float: left;
@@ -11,7 +11,7 @@
 .pending-card {
     background-color: #f3efe0;
     border-radius: 10px;
-    box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
+    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
     width: 30vw;
     height: 15vh;
     margin: 0 0 0 10%;
@@ -28,11 +28,11 @@
 .request-card {
     background-color: #f3efe0;
     border-radius: 10px;
-    box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
+    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
     width: 30vw;
     height: 15vh;
     position: absolute;
-    top: 12.5%;
+    top: 14.5%;
     left: 52%;
     
     p {
@@ -61,7 +61,8 @@
 
 .table-container {
     margin-top: 10% 0 0 -12%;
-    width: 203%;
-    height: 50%;
+    width: 150%;
+    height: 60%;
+
 }
 
