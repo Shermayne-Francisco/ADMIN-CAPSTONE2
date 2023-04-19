@@ -35,7 +35,7 @@ export class PetProfileComponent {
       const dialogRef = this.dialog.open(SchedDialog)
         
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        console.log(`Dialog result: ${result}`);       
       });
     }
     
