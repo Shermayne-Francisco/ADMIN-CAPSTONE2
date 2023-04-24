@@ -114,7 +114,7 @@ const PENDING_DATA: Pending[] = [
 })
 export class RequestsDialog implements AfterViewInit {
   // FOR REQUESTS PAGINATION
-  displayedColumns: string[] = ['id', 'name', 'pet', 'service', 'breed', 'petType', 'date', 'time', 'status'];
+  displayedColumns: string[] = ['id', 'name', 'pet', 'service', 'date', 'time', 'status'];
   dataSource = new MatTableDataSource<Requests>(REQUESTS_DATA);
 
   @ViewChild(MatPaginator)
@@ -131,22 +131,20 @@ export interface Requests {
   name: string;
   pet: string;
   service: string;
-  breed: string;
-  petType: string;
   date: string;
   time: string;
   status: string;
 }
 
 const REQUESTS_DATA: Requests[] = [
-  {id: 1, name: 'Shermayne', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 2, name: 'Lola', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 3, name: 'Piolo',pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 4, name: 'Paulo', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 5, name: 'Adrian', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 6, name: 'Kristiane', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 7, name: 'Mirasol', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 8, name: 'Edrian', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 9, name: 'Neil', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
-  {id: 10, name: 'Nicole', pet: 'Akio', service: 'Grooming', breed: 'Shih Tzu', petType: 'Dog', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 1, name: 'Shermayne', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 2, name: 'Lola', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 3, name: 'Piolo',pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 4, name: 'Paulo', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 5, name: 'Adrian', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 6, name: 'Kristiane', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 7, name: 'Mirasol', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 8, name: 'Edrian', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 9, name: 'Neil', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
+  {id: 10, name: 'Nicole', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30', status: 'Ongoing'},
 ];
