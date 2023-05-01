@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, 
   NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ClientsComponent, ClientsDialog } from './home/clients/clients.component';
@@ -31,6 +32,7 @@ import { PetProfileComponent, HealthinfoDialog, SchedDialog} from './pet-profile
     PetProfileComponent,
     HealthinfoDialog,
     SchedDialog,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

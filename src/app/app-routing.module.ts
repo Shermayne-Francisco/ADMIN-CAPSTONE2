@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ClientsComponent } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
 import { PetProfileComponent } from './pet-profile/pet-profile.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', 
@@ -24,6 +25,10 @@ const routes: Routes = [
         { path: 'appointments', 
           component: AppointmentsComponent
         },
+        {
+          path: 'dashboard',
+          component: DashboardComponent
+        }
       ]
   },
   { path: 'pet-profile',
