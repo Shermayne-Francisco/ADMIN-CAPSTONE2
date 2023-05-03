@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ClientsComponent } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
 import { PetProfileComponent } from './pet-profile/pet-profile.component';
-import { DashboardComponent } from './home/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', 
@@ -19,15 +19,15 @@ const routes: Routes = [
   { path: 'home', 
     component: HomeComponent,
       children: [
+        {
+          path: 'dashboard',
+          component: DashboardComponent,
+        },
         { path: 'clients',
           component: ClientsComponent,
         },
         { path: 'appointments', 
-          component: AppointmentsComponent
-        },
-        {
-          path: 'dashboard',
-          component: DashboardComponent
+          component: AppointmentsComponent,
         }
       ]
   },

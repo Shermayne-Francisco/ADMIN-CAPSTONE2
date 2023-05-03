@@ -6,20 +6,19 @@
       <hr color="#bf622a" width="180px">
 
       <mat-nav-list>
-
-        <a [routerLink]="['/home/dashboard']" routerLinkActive="list-item-active" mat-list-item>
-            <span matListItemTitle>DASHBOARD</span>
+        <a routerLinkActive="list-item-active" [routerLink]="['/home/dashboard']"  [routerLinkActiveOptions]="{exact:true}" mat-list-item>
+          <span matLine>DASHBOARD</span>
         </a>
-
-        <a routerLinkActive="list-item-active" routerLink="/home/clients" mat-list-item>
-          <span matListItemTitle>CLIENTS</span>
+        
+        <a routerLinkActive="list-item-active" [routerLink]="['/home/clients']" mat-list-item >
+          <span matLine>CLIENTS</span>
         </a>
-      
-        <a [routerLink]="['/home/appointments']" routerLinkActive="list-item-active" mat-list-item>
-          <span matListItemTitle>APPOINTMENTS</span>
+        
+        <a routerLinkActive="list-item-active" [routerLink]="['/home/appointments']" mat-list-item >
+          <span matLine>APPOINTMENTS</span>
         </a>
-
       </mat-nav-list>
+      
 
       <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
   </mat-drawer>

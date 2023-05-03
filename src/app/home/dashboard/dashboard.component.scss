@@ -1,45 +1,54 @@
-.dash-container{
-    padding: 0;
-    margin: 0;
-
-    .dashboard{
-        margin: 10px;
-        // h2{
-        //     font-size: 30px;
-        //     font-family: 'poppins', sans-serif;
-        //     font-weight: 700;
-        // }
+.dash-container {
+    .dashboard {
+        margin: 15px;
     }
-    .dash-card{
-        margin: 10px;        
-        mat-card{
+
+    .dash-card {
+        margin: 10px;    
+
+        mat-card {
             top: -20%;
-            height: auto;
+            height: 25vh;
             width: 18vw;
-            mat-card-header{
+            border-radius: 8px;
+
+            mat-card-header {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 15px;
-                font-family: 'poppins', sans-serif;
+                font-size: 20px;
                 font-weight: 500;
-                background-color: gray;
-                color: white;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
+                margin-top: -20px;
+                padding: 20px 0 20px 0;
+                border-radius: 8px 8px 10px 10px;
+                background-color: beige;
             }
-            mat-icon{
-                margin: 20px 10px 10px -4rem;
+
+            mat-icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                margin-left: 10%;
+                padding: 17px 20px 20px 20px;
+                font-size: 35px;
+                color: burlywood;
             }
-            mat-card-content{
-                margin-top: 10%;
-                h1{
+
+            mat-card-content {
+                margin-top: 12%;
+
+                h1, h3 {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     font-size: 50px;
-                    font-family: 'poppins',sans-serif;
                     font-weight: 500;
+                }
+
+                h3 {
+                    font-size: 15px;
+                    font-weight: normal;
                 }
             }
         }
