@@ -41,8 +41,7 @@ export class PetProfileComponent {
     
 }
 
-
-
+//HISTORY CONTENT
 export interface TypeElement {
   name: string;
   weight: number;
@@ -51,12 +50,12 @@ export interface TypeElement {
 
 const ELEMENT_DATA: TypeElement[] = [
   {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
-  {name: 'NobivacNobivac', weight: 6.8, date: '4/23/2023'},
+  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
   {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
   {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
 ];
 
-// TYPE OF VACCINE OPTIONS DIALOG
+// HEALTHINFO DIALOG
 @Component({
   selector: 'healthinfo-dialog',
   templateUrl: 'healthinfo-dialog.html',

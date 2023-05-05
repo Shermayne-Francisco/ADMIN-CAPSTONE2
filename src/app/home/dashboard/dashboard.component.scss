@@ -1,16 +1,20 @@
 .dash-container {
+    //DASHBOARD TITLE
     .dashboard {
         margin: 15px;
     }
 
+    //DASHBOARD CARDS
     .dash-card {
-        margin: 10px;    
+        margin-top: -5%;
+
+        mat-grid-list {
+            margin-top: -5vh;
+        }
 
         mat-card {
-            top: -20%;
             height: 25vh;
             width: 18vw;
-            border-radius: 8px;
 
             mat-card-header {
                 display: flex;
@@ -18,7 +22,6 @@
                 align-items: center;
                 font-size: 20px;
                 font-weight: 500;
-                margin-top: -20px;
                 padding: 20px 0 20px 0;
                 border-radius: 8px 8px 10px 10px;
                 background-color: beige;
@@ -30,15 +33,15 @@
                 align-items: center;
                 position: absolute;
                 margin-left: 10%;
-                padding: 17px 20px 20px 20px;
+                padding: 17px 20px 20px 15px;
                 font-size: 35px;
-                color: burlywood;
+                color: #D1C770;
             }
 
             mat-card-content {
                 margin-top: 12%;
 
-                h1, h3 {
+                h1, p, a {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -46,11 +49,33 @@
                     font-weight: 500;
                 }
 
-                h3 {
+                p, a {
+                    margin-top: 10%;
                     font-size: 15px;
                     font-weight: normal;
                 }
             }
         }
+    }
+}
+
+// ALL APPOINTMENTS TABLE
+.all-sched {
+    font-size: 20px;
+    font-weight: 500;
+    margin: -2% 0 0 1%;
+}
+
+.table-container {
+    margin: 2%;
+
+    th, td {
+        text-align: center;
+    }
+
+    mat-form-field {
+        width: 40%;
+        max-height: 8vh;
+        // height: 30px;
     }
 }

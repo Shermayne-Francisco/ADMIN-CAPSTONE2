@@ -23,6 +23,6 @@ export class LoginComponent {
   }
 
   login() {
-    this.router.navigate(['/home/clients']);
-    };
+    this.router.navigate(['/home/dashboard']);
+  };
 }
