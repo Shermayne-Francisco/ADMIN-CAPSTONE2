@@ -1,22 +1,89 @@
-<mat-form-field appearance="outline" class="search" color="accent">
-  <mat-icon matSuffix mat-button>search</mat-icon>
-  <input matInput placeholder="Search" [(ngModel)]= "search">
-</mat-form-field>
+<div class="clientlist-container">
+  <div id="card-container">
+    <mat-card class="client-list">
+      <button mat-icon-button>                            
+        <mat-icon>add</mat-icon>
+        Add New Client
+      </button>
 
-<div class="client-container">
-  <div class="card-container" matRipple [matRippleCentered]="centered">
-    <mat-card mat-button (click)="openDialog()" class="client-list">
-      <mat-card-header>
-        <mat-card-title>Shermayne OOI Francisco</mat-card-title>
-      </mat-card-header>
+      <!-- CLIENTS' LIST TABLE -->
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> LIST OF CLIENT'S NAME </th>
+            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[8]" aria-label="Select page of users"></mat-paginator>
+      </div>
     </mat-card>
   </div>
 
-  <div class="card-container" matRipple [matRippleCentered]="centered">
-    <mat-card mat-button (click)="openDialog()" class="client-list">
-      <mat-card-header>
-        <mat-card-title>Mirasol Francisco</mat-card-title>
-      </mat-card-header>
+  <!-- SPECIFIC CLIENT INFO -->
+  <div id="card-container" class="info-container">
+    <mat-card class="client-info">
+      <mat-card-content>
+        <img mat-card-image src="/assets/avatar.png" width="35%"> 
+        <h2 mat-dialog-title>Shermayne OOI Francisco</h2>
+        
+        <span>Email</span>
+        <p>ooi@gmail.com</p>
+
+        <span>Contact</span>
+        <p>+63 970 575 9514</p>
+
+        <span>Address</span>
+        <p>1128 Gamaza Hills, Calapacuan, Subic, Zambales</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="pet-card">
+        <mat-card-title>PETS</mat-card-title>   
+
+        <button mat-stroked-button class="pet-btn" mat-dialog-close>
+            Akio
+        </button>
+        <button mat-stroked-button class="pet-btn" mat-dialog-close>
+            Nazi
+        </button>
     </mat-card>
   </div>
 </div>
+
+
+<!-- <mat-form-field appearance="outline" class="search" color="accent">
+  <mat-icon matSuffix mat-button>search</mat-icon>
+  <input matInput placeholder="Search" [(ngModel)]= "search">
+</mat-form-field> -->
+
+<!-- <mat-card-content>
+  <section class="list-container mat-elevation-z3" tabindex="0">
+    <table mat-table [dataSource]="dataSource">
+  
+      Name Column
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+</mat-card-content> -->

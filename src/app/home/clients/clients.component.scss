@@ -1,6 +1,6 @@
 .search {
-    margin: 2% 0 0 70%;
-    width: 25%;
+    margin: 2%;
+    width: 50%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
@@ -10,43 +10,27 @@
     color: rgb(191, 98, 42, 0.5);
 }
 
-.client-container {
-    margin: 2% 0 0 8%;
+
+.clientlist-container {
+    margin: 2%;
 }
 
-.card-container {
-    cursor: pointer;
-    width: 90%;
+#card-container {
+    float: left;
+    padding: 15px;
+    margin-right: 50px;
+    height: 81.5vh;
     border-radius: 10px;
     box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
-    margin-bottom: 20px;
+    background-color: #f3efe0;
     
-
+    // FOR CLIENT'S TABLE
     .client-list {
         background-color: #f3efe0;
+        height: 450px;
     }
+}
 
-    .client-list:hover {
-        background-color: rgb(209, 199, 112, 0.6);
-        color: #f3efe0;
-    }
-
-    mat-card-header {
-        padding: 0.7rem;
-        padding-left: 4rem;
-    }
-
-    mat-card-title {
-        font-weight: 500;
-        font-size: 20px;
-    }
-
-    mat-card-actions {
-        margin-left: 74%;
-        padding-bottom: 22px;
-    }
-
-    mat-icon {
-        font-size: 25px;
-    }
+.info-container {
+    width: 58.8%;
 }
