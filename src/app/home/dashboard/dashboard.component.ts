@@ -3,8 +3,6 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { ClientsDialog } from '../clients/clients.component';
-
 
 // FOR EDIT ACTION DIALOG
 interface Action {

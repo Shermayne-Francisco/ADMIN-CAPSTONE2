@@ -1,11 +1,17 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 
+// FOR HEALTH INFO DIALOG
+interface Vaccine {
+  name: string;
+}
+
+//FOR CLIENT TABLE LIST
 export interface UserData {
   name: string;
 }
@@ -33,7 +39,6 @@ const NAMES: string[] = [
   'Elizabeth',
 ];
 
-
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
@@ -41,8 +46,7 @@ const NAMES: string[] = [
 }) 
 
 export class ClientsComponent {
-  centered = false;
-  search : String ="";
+  panelOpenState = false;
   disableSelect = new FormControl(false);
 
   //CLIENTS' LISTS PAGINATION
@@ -55,12 +59,18 @@ export class ClientsComponent {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor() {
+  //HEALTH INFO 
+  columnsDisplayed = ['name', 'weight', 'date'];
+  sourceData = ELEMENT_DATA;
+
+  constructor(public dialog: MatDialog) {
+    /** TABLE LIST PAGINATION */
     // CREATE 100 USERS
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // ASSIGN THE DATA TO THE DATA SOURCE FOR THE TABLE TO RENDER
     this.dataSource = new MatTableDataSource(users);
+
   }
 
   ngAfterViewInit() {
@@ -77,10 +87,29 @@ export class ClientsComponent {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  /** DIALOGS */
+  //ADD NEW CLIENT DIALOG
+  addClient() {
+    const dialogRef = this.dialog.open(AddclientDialog)
+      
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+   //HEALTH INFO DIALOG
+   seeHistory() {
+    const dialogRef = this.dialog.open(HistoryDialog)
+      
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
 
 // BUILDS AND RETURNS A NEW USER
-function createNewUser(id: number): UserData {
+function createNewUser(_id: number): UserData {
   const name =
     NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
     ' ' +
@@ -88,17 +117,46 @@ function createNewUser(id: number): UserData {
     '.';
 
   return {
-    // id: id.toString(),
     name: name,
-    // progress: Math.round(Math.random() * 100).toString(),
-    // fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
   };
 }
 
 
-//CLIENTS DIALOG
+//CONTENTS OF HEALTH HISTORY
+export interface TypeElement {
+  name: string;
+  weight: number;
+  date: string;
+}
+
+const ELEMENT_DATA: TypeElement[] = [
+  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
+  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
+  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
+  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
+];
+
+//ADD NEW CLIENT DIALOG
 @Component({
-  selector: 'clients-dialog',
-  templateUrl: 'clients-dialog.html',
+  selector: 'addclient-dialog',
+  templateUrl: 'addclient-dialog.html',
 })
-export class ClientsDialog {}
+export class AddclientDialog {
+}
+
+//HEALTH INFO DIALOG
+@Component({
+  selector: 'history-dialog',
+  templateUrl: 'history-dialog.html',
+})
+export class HistoryDialog {
+  typeControl = new FormControl<Vaccine | null>(null, Validators.required);
+  vaccines: Vaccine[] = [
+    {name: 'Vaccination'},
+    {name: 'Deworming'},
+    {name: 'Heartworm Prevention'},
+  ];
+
+  columnsDisplayed: Iterable<string> | undefined;
+  sourceData: Iterable<string> | undefined;
+}
