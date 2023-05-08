@@ -6,8 +6,8 @@
 
 <!-- DIALOG CONTAINER -->
 <mat-dialog-content class="dialog-container">
-    <div class="health-dialog"> 
-        <mat-form-field color="accent" appearance="outline" class="type">
+    <div class="dialog"> 
+        <mat-form-field color="accent" appearance="outline">
             <mat-label>Current Status</mat-label>
             <mat-select [formControl]="typeControl" required>
                 <mat-option>--</mat-option>
@@ -18,10 +18,11 @@
         <p>Reschedule Client?</p>
 
         <mat-form-field color="accent" appearance="outline">
-            <mat-label>Date</mat-label>
-            <input matInput [matDatepicker]="picker" disabled required>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker disabled="false"></mat-datepicker>
+            <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date & time" [(ngModel)]="myDatePicker" required>
+            
+            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+        
+            <ngx-mat-datetime-picker #picker [enableMeridian]="true"></ngx-mat-datetime-picker>
         </mat-form-field>
     </div>
 </mat-dialog-content>

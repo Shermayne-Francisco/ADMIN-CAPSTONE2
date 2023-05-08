@@ -15,9 +15,9 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule,
 import { DashboardComponent, EditActionDialog } from './home/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ClientsComponent, AddclientDialog, HistoryDialog } from './home/clients/clients.component';
+import { ClientsComponent, AddclientDialog, AddpetDialog, HealthhistoryDialog, AddschedDialog } from './home/clients/clients.component';
 import { AppointmentsComponent, PendingDialog, RequestsDialog} from './home/appointments/appointments.component';
-// import { PetProfileComponent} from './pet-profile/pet-profile.component';
+// import { PetProfileComponent} from './pet-profile/pet-profile.component';HistoryDialog
 
 @NgModule({
   declarations: [
@@ -27,7 +27,9 @@ import { AppointmentsComponent, PendingDialog, RequestsDialog} from './home/appo
 
     ClientsComponent,
     AddclientDialog,
-    HistoryDialog,
+    AddpetDialog,
+    HealthhistoryDialog,
+    AddschedDialog,
 
     AppointmentsComponent,
     PendingDialog,

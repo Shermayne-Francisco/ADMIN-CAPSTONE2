@@ -146,84 +146,89 @@
         float: right;
         margin-top: -20%;
     }
-}
 
-/** DIALOGS **/
-// VACCINATION CARD
-.vaxx-card {
-    background-color: #f3efe0;
-    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
-    margin-left: 100px;
-    padding: 10px;
-    width: 45%;
-
-    mat-card-subtitle {
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 5px;
-        margin-top: -6px;
-    }
-
-    mat-grid-list {
-        width: 97%;
-    }
-
-    .col-title {
-        mat-grid-tile {
-            background-color: rgb(209, 199, 112, 0.6);
-        }
-    }
-
-}
-
-// DEWORMING CARD
-.deworm-card {
-    background-color: #f3efe0;
-    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
-    margin: 10px 0 0 100px;
-    padding: 10px;
-    width: 45%;
-
-     mat-card-subtitle {
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 5px;
-        margin-top: -6px;
-    }
-
-    mat-grid-list {
-        width: 97%;
-    }
-
-    .col-title {
-        mat-grid-tile {
-            background-color: rgb(191, 98, 42, 0.6);
-        }
+    .sched-btn {
+        float: right;
+        margin-top: -12%;
     }
 }
 
-// HEARTWORM PREVENTION CARD
-.heartworm-card {
-    background-color: #f3efe0;
-    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
-    margin: 10px 0 0 100px;
-    padding: 10px;
-    width: 45%;
+// /** DIALOGS **/
+// // VACCINATION CARD
+// .vaxx-card {
+//     background-color: #f3efe0;
+//     box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
+//     margin-left: 100px;
+//     padding: 10px;
+//     width: 45%;
 
-     mat-card-subtitle {
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 5px;
-        margin-top: -6px;
-    }
+//     mat-card-subtitle {
+//         font-size: 18px;
+//         font-weight: 500;
+//         margin-bottom: 5px;
+//         margin-top: -6px;
+//     }
 
-    mat-grid-list {
-        width: 97%;
-    }
+//     mat-grid-list {
+//         width: 97%;
+//     }
 
-    .col-title {
-        mat-grid-tile {
-            background-color: rgb(20, 77, 47, 0.6);
-        }
-    }
-}
+//     .col-title {
+//         mat-grid-tile {
+//             background-color: rgb(209, 199, 112, 0.6);
+//         }
+//     }
+
+// }
+
+// // DEWORMING CARD
+// .deworm-card {
+//     background-color: #f3efe0;
+//     box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
+//     margin: 10px 0 0 100px;
+//     padding: 10px;
+//     width: 45%;
+
+//      mat-card-subtitle {
+//         font-size: 18px;
+//         font-weight: 500;
+//         margin-bottom: 5px;
+//         margin-top: -6px;
+//     }
+
+//     mat-grid-list {
+//         width: 97%;
+//     }
+
+//     .col-title {
+//         mat-grid-tile {
+//             background-color: rgb(191, 98, 42, 0.6);
+//         }
+//     }
+// }
+
+// // HEARTWORM PREVENTION CARD
+// .heartworm-card {
+//     background-color: #f3efe0;
+//     box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
+//     margin: 10px 0 0 100px;
+//     padding: 10px;
+//     width: 45%;
+
+//      mat-card-subtitle {
+//         font-size: 18px;
+//         font-weight: 500;
+//         margin-bottom: 5px;
+//         margin-top: -6px;
+//     }
+
+//     mat-grid-list {
+//         width: 97%;
+//     }
+
+//     .col-title {
+//         mat-grid-tile {
+//             background-color: rgb(20, 77, 47, 0.6);
+//         }
+//     }
+// }

@@ -64,7 +64,7 @@
         <mat-card class="pet-card">
           <mat-card-header>Pets</mat-card-header>
           <div class="addpet-btn" color="accent">
-            <button mat-icon-button class="add-icon">
+            <button mat-icon-button class="add-icon" (click)="addPet()">
               <mat-icon>add</mat-icon>
             </button>
           </div>
@@ -104,6 +104,11 @@
                       Health History
                     </button>
                   </div>
+                  <div class="sched-btn">
+                    <button mat-flat-button color="accent" (click)="addSched()">
+                      Appoint Pet
+                    </button>
+                  </div>
                 </mat-card-content>
               </mat-card>
             </mat-expansion-panel>
@@ -137,8 +142,13 @@
                   </p>
 
                   <div class="health-btn">
-                    <button mat-flat-button color="accent">
+                    <button mat-flat-button color="accent" (click)="seeHistory()">
                       Health History
+                    </button>
+                  </div>
+                  <div class="sched-btn">
+                    <button mat-flat-button color="accent" (click)="addSched()">
+                      Appoint Pet
                     </button>
                   </div>
                 </mat-card-content>

@@ -76,4 +76,6 @@ export class EditActionDialog {
     {name: 'Cancelled'},
     {name: 'Done'},
   ];
+
+  myDatePicker: any;
 }
