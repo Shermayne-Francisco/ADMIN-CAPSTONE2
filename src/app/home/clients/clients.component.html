@@ -5,7 +5,7 @@
       <button mat-fab extended class="addnew-icon" (click)="addClient()">                            
         <mat-icon>add</mat-icon>
         New Client
-      </button>
+      </button> 
       
         <!-- CLIENTS' LIST TABLE -->
       <mat-form-field class="filter-field" appearance="outline" color="accent">
@@ -13,26 +13,21 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Francisco" #input>
       </mat-form-field>
 
-      <section class="table-list">
-        <table  mat-table [dataSource]="dataSource" matSort>
-      
-          <!-- Name Column -->
+        <mat-table class="table-list" [dataSource]="dataSource" matSort>
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> LIST OF CLIENTS </th>
-            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+            <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> LIST OF CLIENTS </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
           </ng-container>
-      
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
-          <!-- Row shown when there is no matching data. -->
+        
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row matRipple *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          
           <tr class="mat-row" *matNoDataRow>
             <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
           </tr>
-        </table>
-      
-        <mat-paginator class="pagination" [pageSizeOptions]="[7]"></mat-paginator>
-      </section>
+        </mat-table>
+
+        <mat-paginator  [pageSizeOptions]="[7]"></mat-paginator>
     </mat-card>
   </div>
 
@@ -60,31 +55,31 @@
         </mat-card-content>
       </mat-card>
         
-        <!-- FOR CLIENTS' PETS -->
-        <mat-card class="pet-card">
-          <mat-card-header>Pets</mat-card-header>
-          <div class="addpet-btn" color="accent">
-            <button mat-icon-button class="add-icon" (click)="addPet()">
-              <mat-icon>add</mat-icon>
-            </button>
-          </div>
-          <hr color="#bf622a" width="100%">
+      <!-- FOR CLIENTS' PETS -->
+      <div class="pet-card">
+        <mat-card-header>Pets</mat-card-header>
+        <div class="addpet-btn" color="accent">
+          <button mat-icon-button class="add-icon" (click)="addPet()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <hr color="#bf622a" width="100%">
 
-          <!-- FOR PET'S DETAILS VIEWING -->
-          <mat-accordion class="pet-panel">
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <span class="e-avatar e-avatar-circle">
-                    <img src="/assets/avatar.png" width="20%"> 
-                  </span>
-                </mat-panel-title>
-                <mat-panel-description>
-                  Akio
-                </mat-panel-description>
-              </mat-expansion-panel-header>
+        <!-- FOR PET'S DETAILS VIEWING -->
+        <mat-accordion class="pet-panel">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="e-avatar e-avatar-circle">
+                  <img src="/assets/avatar.png" width="20%"> 
+                </span>
+              </mat-panel-title>
+              <mat-panel-description>
+                Akio
+              </mat-panel-description>
+            </mat-expansion-panel-header>
 
-              <mat-card class="pet-details">
+              <mat-card class="pet-details"> <!-- SPECIFIC PET DETAILS -->
                 <mat-card-content>
                   <p>Color/Markings 
                     <span>: Brown</span>
@@ -100,8 +95,16 @@
                   </p>
                   
                   <div class="health-btn">
-                    <button mat-flat-button color="accent" (click)="seeHistory()">
-                      Health History
+                    <button mat-flat-button [matMenuTriggerFor]="beforeMenu" color="accent">Health History</button>
+                      <mat-menu #beforeMenu="matMenu" xPosition="before">
+                        <button mat-menu-item (click)="vaxxDialog()">Vaccination</button>
+                        <button mat-menu-item>Deworming</button>
+                        <button mat-menu-item>Heartworm Prevention</button>
+                      </mat-menu>
+                  </div>
+                  <div class="healthinfo-btn">
+                    <button mat-flat-button color="accent" (click)="addHealth()">
+                      Add Health Info
                     </button>
                   </div>
                   <div class="sched-btn">
@@ -111,52 +114,8 @@
                   </div>
                 </mat-card-content>
               </mat-card>
-            </mat-expansion-panel>
-
-            <!-- for sample only, might delete -->
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <span class="e-avatar e-avatar-circle">
-                    <img src="/assets/avatar.png" width="20%"> 
-                  </span>
-                </mat-panel-title>
-                <mat-panel-description>
-                  Nazi
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-
-              <mat-card class="pet-details">
-                <mat-card-content>
-                  <p>Color/Markings 
-                    <span>: Brown</span>
-                  </p>
-                  <p>Breed
-                    <span>: Shih Tzu</span>
-                  </p>
-                  <p>Birthdate 
-                    <span>: 03 June 2021</span>
-                  </p>
-                  <p>Gender 
-                    <span>: Male</span>
-                  </p>
-
-                  <div class="health-btn">
-                    <button mat-flat-button color="accent" (click)="seeHistory()">
-                      Health History
-                    </button>
-                  </div>
-                  <div class="sched-btn">
-                    <button mat-flat-button color="accent" (click)="addSched()">
-                      Appoint Pet
-                    </button>
-                  </div>
-                </mat-card-content>
-              </mat-card>
-            </mat-expansion-panel> 
-            <!-- end -->
-
-          </mat-accordion>
-        </mat-card>
-      </mat-card>   
+          </mat-expansion-panel>
+        </mat-accordion>  
+      </div>
+    </mat-card>
 </div>

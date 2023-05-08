@@ -1,14 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, Validators} from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 
-// FOR HEALTH INFO DIALOG
-interface Vaccine {
+//FOR ADD PET DIALOG
+interface AddPet {
   name: string;
+}
+
+// FOR ADD SCHED AND HEALTH HISTORY DIALOG
+interface Vaccine {
+  vaxx: string;
 }
 
 //FOR CLIENT TABLE LIST
@@ -44,10 +49,15 @@ const NAMES: string[] = [
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss'] 
 }) 
-
 export class ClientsComponent {
   panelOpenState = false;
   disableSelect = new FormControl(false);
+
+  // HEALTH HISTORY PAGINATION
+  displayedColumns2 = ['position', 'name', 'weight', 'symbol'];
+  dataSource2 = ELEMENT_DATA;
+  // displayedColumns2 = ['name', 'weight', 'date'];
+  // dataSource2 = new MatTableDataSource<TypeElement>(ELEMENT_DATA);
 
   //CLIENTS' LISTS PAGINATION
   displayedColumns: string[] = ['name'];
@@ -58,10 +68,6 @@ export class ClientsComponent {
   
   @ViewChild(MatSort)
   sort!: MatSort;
-
-  //HEALTH INFO 
-  columnsDisplayed = ['name', 'weight', 'date'];
-  sourceData = ELEMENT_DATA;
 
   constructor(public dialog: MatDialog) {
     /** TABLE LIST PAGINATION */
@@ -89,19 +95,41 @@ export class ClientsComponent {
   }
 
   /** DIALOGS */
-  //ADD NEW CLIENT DIALOG
   addClient() {
-    const dialogRef = this.dialog.open(AddclientDialog)
-      
+    const dialogRef = this.dialog.open(AddclientDialog);
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
-   //HEALTH INFO DIALOG
-   seeHistory() {
-    const dialogRef = this.dialog.open(HistoryDialog)
-      
+  addPet() {
+    const dialogRef = this.dialog.open(AddpetDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  addSched() { 
+    const dialogRef = this.dialog.open(AddschedDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  addHealth() {
+    const dialogRef = this.dialog.open(AddhealthDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  vaxxDialog() {
+    const dialogRef = this.dialog.open(VaccinationDialog);
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -122,41 +150,88 @@ function createNewUser(_id: number): UserData {
 }
 
 
-//CONTENTS OF HEALTH HISTORY
-export interface TypeElement {
+export interface PeriodicElement {
   name: string;
+  position: number;
   weight: number;
-  date: string;
+  symbol: string;
 }
 
-const ELEMENT_DATA: TypeElement[] = [
-  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
-  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
-  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
-  {name: 'Nobivac', weight: 6.8, date: '4/23/2023'},
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
 
-//ADD NEW CLIENT DIALOG
+
+/** ADD NEW CLIENT DIALOG */
 @Component({
   selector: 'addclient-dialog',
   templateUrl: 'addclient-dialog.html',
 })
-export class AddclientDialog {
+export class AddclientDialog {}
+
+/** ADD NEW CLIENT'S PET DIALOG */
+@Component({
+  selector: 'addpet-dialog',
+  templateUrl: 'addpet-dialog.html',
+})
+export class AddpetDialog {
+  typeControl = new FormControl<AddPet | null>(null, Validators.required);
+  addpets: AddPet[] = [
+    {name: 'Female'},
+    {name: 'Male'},
+  ];
 }
 
-//HEALTH INFO DIALOG
+/** ADD SCHED DIALOG */
 @Component({
-  selector: 'history-dialog',
-  templateUrl: 'history-dialog.html',
+  selector: 'addsched-dialog',
+  templateUrl: 'addsched-dialog.html',
 })
-export class HistoryDialog {
+export class AddschedDialog {
   typeControl = new FormControl<Vaccine | null>(null, Validators.required);
   vaccines: Vaccine[] = [
-    {name: 'Vaccination'},
-    {name: 'Deworming'},
-    {name: 'Heartworm Prevention'},
+    {vaxx: 'Vaccination'},
+    {vaxx: 'Deworming'},
+    {vaxx: 'Heartworm Prevention'},
   ];
 
-  columnsDisplayed: Iterable<string> | undefined;
-  sourceData: Iterable<string> | undefined;
+  myDatePicker: any;
+}
+
+/** PET HEALTH HISTORY DIALOG */
+@Component({
+  selector: 'addhealth-dialog',
+  templateUrl: 'addhealth-dialog.html',
+})
+export class AddhealthDialog {
+  typeControl = new FormControl<Vaccine | null>(null, Validators.required);
+  vaccines: Vaccine[] = [
+    {vaxx: 'Vaccination'},
+    {vaxx: 'Deworming'},
+    {vaxx: 'Heartworm Prevention'},
+  ];
+  
+  // dataSource2: any;
+  // displayedColumns2: any;
+}
+
+
+/** HEALTH HISTORY DIALOGS — VAXX, DEWORM, HWP */
+//FOR VACCIANTION DIALOG
+@Component({
+  selector: 'vaccination-dialog',
+  templateUrl: 'vaccination-dialog.html',
+})
+export class VaccinationDialog {
+  dataSource2: any;
+  displayedColumns2: any;
 }

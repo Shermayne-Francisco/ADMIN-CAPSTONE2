@@ -33,23 +33,12 @@
     
     //CLIENTS' TABLE LIST
     .table-list {
+        background: transparent;
         margin-top: -30px;
-
-        th {
-            font-weight: 500;
-            font-size: 15px;
-            background-color: #f3efe0;
-        }
-
-        td {
-            padding: -5%;
-            background-color: #f3efe0;
-        }
-
-        .pagination {
-            background-color: #f3efe0;
-        }
     }
+    mat-paginator {
+            background-color: #f3efe0;
+        }
 }
 
 
@@ -117,10 +106,6 @@
         margin: 2%;
         border: black;
 
-        mat-expansion-panel {
-            background-color: #f3efe0;
-        }
-
         mat-panel-description {
             font-size: 16px;
         }
@@ -130,7 +115,10 @@
         }
     }
 }
+
 .pet-details {
+    background-color: #f3efe0;
+    
     p {
         font-size: 14px;
         font-weight: 600;
@@ -147,9 +135,14 @@
         margin-top: -20%;
     }
 
+    .healthinfo-btn {
+        float: right;
+        margin-top: -13%;
+    }
+
     .sched-btn {
         float: right;
-        margin-top: -12%;
+        margin-top: -6%;
     }
 }
 

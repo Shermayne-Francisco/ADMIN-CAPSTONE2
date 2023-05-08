@@ -8,6 +8,17 @@
     .dash-card {
         margin-top: -5%;
 
+        a {
+            cursor: pointer;
+            color: #D1C770;
+            font-weight: 500;
+        }
+
+        a:hover {
+            transform: scale(0.9);
+            color: #000000;
+        }
+
         mat-grid-list {
             margin-top: -5vh;
         }

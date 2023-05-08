@@ -12,12 +12,13 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, 
   NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 
-import { DashboardComponent, EditActionDialog } from './home/dashboard/dashboard.component';
+import { DashboardComponent, EditActionDialog, PendingDialog, RequestDialog } from './home/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ClientsComponent, AddclientDialog, AddpetDialog, HealthhistoryDialog, AddschedDialog } from './home/clients/clients.component';
-import { AppointmentsComponent, PendingDialog, RequestsDialog} from './home/appointments/appointments.component';
-// import { PetProfileComponent} from './pet-profile/pet-profile.component';HistoryDialog
+import { ClientsComponent, AddclientDialog, AddpetDialog, AddschedDialog, AddhealthDialog,
+  VaccinationDialog } from './home/clients/clients.component';
+import { AppointmentsComponent } from './home/appointments/appointments.component';
+// import { PetProfileComponent} from './pet-profile/pet-profile.component';  ,  
 
 @NgModule({
   declarations: [
@@ -28,17 +29,19 @@ import { AppointmentsComponent, PendingDialog, RequestsDialog} from './home/appo
     ClientsComponent,
     AddclientDialog,
     AddpetDialog,
-    HealthhistoryDialog,
     AddschedDialog,
+    AddhealthDialog,
+
+    VaccinationDialog,
 
     AppointmentsComponent,
-    PendingDialog,
-    RequestsDialog,
     
     // PetProfileComponent,
 
     DashboardComponent,
-    EditActionDialog
+    EditActionDialog,
+    PendingDialog,
+    RequestDialog
   ],
   imports: [
     BrowserModule,

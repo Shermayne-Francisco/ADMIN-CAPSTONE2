@@ -47,15 +47,10 @@ body { margin: 0; font-family: "Montserrat", sans-serif; }
     background-color: #f3efe0;
 }
 
-// FOR DIALOG CONTENT
-// .dialog-content {
-//     margin-left: 4%;
-//     text-align: center;
-// }
-
-/** FOR HEALTH INFO AND SCHED DIALOG **/
+/** FOR EDIT ACTION, ADDCLIENT, ADDSCHED, ADDHEALTH,
+AND ADDPET DIALOG **/
 .dialog {
-    width: 70vh;
+    width: 30vw;
     text-align: center;
 
     mat-form-field {
@@ -83,5 +78,15 @@ body { margin: 0; font-family: "Montserrat", sans-serif; }
     }
 }
 
+/** FOR PENDING DIALOG **/
+.pend {
+    margin-left: -20%;
+}
+.pending-dialog {
+    width: 40vw;
+}
 
-    
+/** FOR REQUEST DIALOG **/
+.request-dialog {
+    width: 50vw;
+}
