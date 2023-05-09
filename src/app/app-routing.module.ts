@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ClientsComponent } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
-import { PetProfileComponent } from './pet-profile/pet-profile.component';
 
 const routes: Routes = [
   { path: '', 
@@ -30,9 +29,6 @@ const routes: Routes = [
           component: AppointmentsComponent,
         }
       ]
-  },
-  { path: 'pet-profile',
-    component: PetProfileComponent,
   }
 ];
 
