@@ -94,7 +94,7 @@ const ELEMENT_DATA: AllAppointments[] = [
 export class EditActionDialog {
   typeControl = new FormControl<Action | null>(null, Validators.required);
   actions: Action[] = [
-    {name: 'Ongoing'},
+    {name: 'In Progress'},
     {name: 'Pending'},
     {name: 'Delayed'},
     {name: 'Cancelled'},
