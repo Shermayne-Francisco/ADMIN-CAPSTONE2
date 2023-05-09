@@ -42,13 +42,13 @@ import { HttpClientModule } from '@angular/common/http';
     HeartwormDialog,
     TreatmentsDialog,
 
-    AppointmentsComponent,
-  
     DashboardComponent,
     EditActionDialog,
     PendingDialog,
     RequestDialog,
-    ClientsDialog
+    ClientsDialog,
+
+    AppointmentsComponent
   ],
   imports: [
     BrowserModule,
