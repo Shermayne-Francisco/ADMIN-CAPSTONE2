@@ -24,7 +24,8 @@ body { margin: 0; font-family: "Montserrat", sans-serif; }
 // CLOSE ACTION
 .close-bar {
     background-color: #f3efe0;
-    
+    margin-bottom: -30%;
+
     h2 {
         right: 50%;
     }
@@ -80,13 +81,39 @@ AND ADDPET DIALOG **/
 
 /** FOR PENDING DIALOG **/
 .pend {
-    margin-left: -20%;
+    right: 80%;
 }
 .pending-dialog {
-    width: 40vw;
+    width: 50vw;
 }
 
 /** FOR REQUEST DIALOG **/
+.reqs {
+    right: 85%;
+}
 .request-dialog {
+    width: 75vw;
+}
+
+/** FOR CLIENTS DIALOG **/
+.client {
+    right: 80%;
+}
+.client-dialog {
     width: 50vw;
+}
+
+/** FOR HISTORY DIALOG **/
+.history {
+    right: 60%;
+}
+.hwp {
+    right: 45%;
+}
+.history-dialog {
+    width: 40vw;
+
+    th, td {
+        text-align: center;
+    }
 }

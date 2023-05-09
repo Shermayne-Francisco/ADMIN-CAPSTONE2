@@ -1,0 +1,37 @@
+<!-- CLOSE ACTION -->
+<mat-dialog-actions align="end" class="close-bar">
+    <p mat-dialog-title class="client">Clients</p>
+    <mat-icon mat-dialog-close class="close-btn">close</mat-icon>
+    <hr color="#bf622a" width="100%">
+</mat-dialog-actions>
+
+<!-- DIALOG CONTAINER -->
+<mat-dialog-content class="dialog-container">
+    <div class="client-dialog">
+        <table mat-table [dataSource]="dataSource">
+    
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+        
+            <!-- Pet Name Column -->
+            <ng-container matColumnDef="pet">
+                <th mat-header-cell *matHeaderCellDef> Pet Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.pet}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    
+        <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+    </div>        
+</mat-dialog-content>

@@ -98,8 +98,9 @@
                     <button mat-flat-button [matMenuTriggerFor]="beforeMenu" color="accent">Health History</button>
                       <mat-menu #beforeMenu="matMenu" xPosition="before">
                         <button mat-menu-item (click)="vaxxDialog()">Vaccination</button>
-                        <button mat-menu-item>Deworming</button>
-                        <button mat-menu-item>Heartworm Prevention</button>
+                        <button mat-menu-item (click)="dewormDialog()">Deworming</button>
+                        <button mat-menu-item (click)="hwpDialog()">Heartworm Prevention</button>
+                        <button mat-menu-item (click)="otherDialog()">Other Treatments</button>
                       </mat-menu>
                   </div>
                   <div class="healthinfo-btn">

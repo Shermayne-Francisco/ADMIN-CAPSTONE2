@@ -1,72 +1,19 @@
-// SCHEDULE CONTAINER
-.sched-container {
-    margin: 3% 0 0 8%;
-
-    .sched-content {
-        float: left;
-    }
+.tab-card {
+    margin: 10px;
 }
 
-// FOR PENDING APPOINTMENTS (SET BY ADMIN)
-.pending-card {
+mat-tab-group {
     background-color: #f3efe0;
-    border-radius: 10px;
-    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
-    width: 30vw;
-    height: 15vh;
-    margin: 0 0 0 10%;
-
-    p {
-        padding: 20px;
-        font-size: 25px;
-        font-weight: 500;
-        margin-top: 5px;
-    }
 }
 
-mat-card {
-    width: 50%;
+.print-icon {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin-right: 20px;
 }
 
-// FOR REQUEST APPOINTMENTS - SET BY USER/CLIENT 
-.request-card {
-    background-color: #f3efe0;
-    border-radius: 10px;
-    box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
-    width: 30vw;
-    height: 15vh;
-    position: absolute;
-    top: 14.5%;
-    left: 52%;
-    
-    p {
-        padding: 20px;
-        font-size: 25px;
-        font-weight: 500;
-        margin-top: 5px;
-    }
+mat-paginator {
+    // margin-top: 5%;
+    margin-bottom: 2%;
 }
-
-.expand-icon {
-    margin-left: 88%;
-    color: #BF622A;
-}
-.expand-icon:hover {
-    transform: scale(0.9);
-    color: rgb(191, 98, 42, 0.5);
-}
-
-// FOR ALL APPOINTMENTS PAGINATION
-.all-sched {
-    font-size: 24px;
-    font-weight: 500;
-    margin: 8% 0 3% 0;
-}
-
-.table-container {
-    margin-top: 10% 0 0 -12%;
-    width: 150%;
-    height: 60%;
-
-}
-

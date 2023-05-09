@@ -53,12 +53,6 @@ export class ClientsComponent {
   panelOpenState = false;
   disableSelect = new FormControl(false);
 
-  // HEALTH HISTORY PAGINATION
-  displayedColumns2 = ['position', 'name', 'weight', 'symbol'];
-  dataSource2 = ELEMENT_DATA;
-  // displayedColumns2 = ['name', 'weight', 'date'];
-  // dataSource2 = new MatTableDataSource<TypeElement>(ELEMENT_DATA);
-
   //CLIENTS' LISTS PAGINATION
   displayedColumns: string[] = ['name'];
   dataSource: MatTableDataSource<UserData>;
@@ -134,6 +128,30 @@ export class ClientsComponent {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  dewormDialog() {
+    const dialogRef = this.dialog.open(DewormingDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  hwpDialog() {
+    const dialogRef = this.dialog.open(HeartwormDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  otherDialog() {
+    const dialogRef = this.dialog.open(TreatmentsDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
 
 // BUILDS AND RETURNS A NEW USER
@@ -148,27 +166,6 @@ function createNewUser(_id: number): UserData {
     name: name,
   };
 }
-
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 
 /** ADD NEW CLIENT DIALOG */
@@ -219,19 +216,98 @@ export class AddhealthDialog {
     {vaxx: 'Deworming'},
     {vaxx: 'Heartworm Prevention'},
   ];
-  
-  // dataSource2: any;
-  // displayedColumns2: any;
 }
 
 
-/** HEALTH HISTORY DIALOGS — VAXX, DEWORM, HWP */
-//FOR VACCIANTION DIALOG
+            /** HEALTH HISTORY DIALOGS — VAXX, DEWORM, HWP */
+/** FOR VACCINATION DIALOG */
 @Component({
   selector: 'vaccination-dialog',
   templateUrl: 'vaccination-dialog.html',
 })
 export class VaccinationDialog {
-  dataSource2: any;
-  displayedColumns2: any;
+  // For Vaccination Pagination
+  displayedColumns: string[] = ['name', 'weight', 'date'];
+  dataSource = new MatTableDataSource<History>(HISTORIES_DATA);
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 }
+
+/** FOR DEWORMING DIALOG */
+@Component({
+  selector: 'deworming-dialog',
+  templateUrl: 'deworming-dialog.html',
+})
+export class DewormingDialog {
+  // For Deworming Pagination
+  displayedColumns: string[] = ['name', 'weight', 'date'];
+  dataSource = new MatTableDataSource<History>(HISTORIES_DATA);
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+}
+
+/** FOR HEARTWORM DIALOG */
+@Component({
+  selector: 'heartworm-dialog',
+  templateUrl: 'heartworm-dialog.html',
+})
+export class HeartwormDialog {
+  // For Heartworm Pagination
+  displayedColumns: string[] = ['name', 'weight', 'date'];
+  dataSource = new MatTableDataSource<History>(HISTORIES_DATA);
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+}
+
+/** FOR TREATMENTS DIALOG */
+@Component({
+  selector: 'treatments-dialog',
+  templateUrl: 'treatments-dialog.html',
+})
+export class TreatmentsDialog {
+  // For Treatments Pagination
+  displayedColumns: string[] = ['name', 'weight', 'date'];
+  dataSource = new MatTableDataSource<History>(HISTORIES_DATA);
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+}
+
+// Contents - History Pagination
+export interface History {
+  name: string;
+  weight: string;
+  date: string;
+}
+
+const HISTORIES_DATA: History[] = [
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+  { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
+];
