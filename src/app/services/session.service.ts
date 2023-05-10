@@ -1,25 +1,26 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
-  constructor(
-    private http: HttpClient,
-    private route: Router
-  ) { }
 
-  loadToSession(data: any) {
-    sessionStorage.setItem('data', data);
+
+  constructor() { }
+  
+  uploadToSession(data: any) {
+    sessionStorage.setItem('Data', data);
   }
 
   getSessionData() {
-    return sessionStorage.getItem('data');
+    return sessionStorage.getItem('Data');
   }
 
   deleteData() {
-    sessionStorage.removeItem("data");
+    sessionStorage.removeItem("Data");
+  }
+
+  searchSessionId() {
+    return sessionStorage.getItem('Data');
   }
 }

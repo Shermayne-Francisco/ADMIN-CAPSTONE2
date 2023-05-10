@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SessionService } from '../services/session.service';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private router: Router){}
+  constructor(
+    private router: Router,
+    private session: SessionService,
+    public post: PostService
+    ){}
 
   hide = true;
 
   email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
@@ -23,6 +30,21 @@ export class LoginComponent {
   }
 
   login() {
-    this.router.navigate(['/home/dashboard']);
+    let loginData = {
+      email: this.email.value,
+      password: this.password.value
+    };
+    console.log(loginData);
+  
+    this.post.postData('Login', JSON.stringify(loginData))
+    .subscribe((response: any) => {
+      let payload = {
+        // extract only the data you need from the response
+        user: response.payload.user,
+        token: response.payload.token
+      };
+      this.session.uploadToSession(JSON.stringify(payload));
+      this.router.navigate(['/home/dashboard']);
+    })
   };
 }
