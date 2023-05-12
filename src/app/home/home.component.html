@@ -1,9 +1,11 @@
 <mat-drawer-container class="container">
   <mat-drawer #drawer class="sidenav" mode="side" opened="true">
-      <img src="/assets/aclogo02.png">
-      <h4>Animal's Choice</h4>
+      <h4 class="vet-name">Animal's Choice</h4>
       <h5>Veterinary Clinic</h5>
       <hr color="#bf622a" width="180px">
+      <img src="/assets/avatar.png" class="admin-pic">
+      <h4 class="admin-name">Shermayne OOI Francisco</h4>
+      <h4 class="admin-email">superadmin@gmail.com</h4>
 
       <mat-nav-list>
         <a routerLinkActive="list-item-active" [routerLink]="['/home/dashboard']" mat-list-item>
@@ -19,8 +21,6 @@
         </a>
       </mat-nav-list>
       
-
-      <mat-icon class="logout-btn" (click)="logout()" >exit_to_app</mat-icon>
   </mat-drawer>
 
   <mat-toolbar>
@@ -29,6 +29,19 @@
     </button>
 
     <span class="adminportal">Admin Portal</span>
+
+    <span class="spacer"></span>
+
+      <img src="/assets/aclogo01.png" width="8%">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="logout-btn">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          Logout
+        </button>
+      </mat-menu>
   </mat-toolbar>
 
   <div class="route">

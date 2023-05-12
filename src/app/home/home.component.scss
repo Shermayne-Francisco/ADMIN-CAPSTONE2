@@ -1,20 +1,36 @@
 .container {
     background: linear-gradient(rgb(243, 227, 205) 50%, rgba(209, 199, 112, 0.6));
+    // width: 10%;
 }
   
 .sidenav {
     padding: 30px;
     border-radius: 0 5px 5px 0;
     text-align: center;
+    width: 16%;
     box-shadow: 5px 4px 10px 0 rgb(0, 0, 0, 0.25);
     background-color: #F4F4F4;
 
 
-    h4 {
+    .vet-name {
         font-weight: bold;
         font-size: 20px;
         color: #bf622a;
         margin: 15px;
+    }
+
+    .admin-name {
+        font-weight: 500;
+        font-size: 18px;
+        color: #BF622A;
+        margin: 6px;
+    }
+
+    .admin-email {
+        font-style: italic;
+        font-size: 12px;
+        color: #BF622A;
+        margin: 6px;
     }
 
     h5 {
@@ -25,24 +41,8 @@
         margin: -15px 0 15px;
     }
 
-    img {
-        width: 150px;
-    }
-
-    .logout-btn{
-        font-size: 30px;
-        position: absolute;
-        left: 34%;
-        bottom: 10%;
-        padding: 10%;
-        color: #bf622a;
-        text-align: center;
-        cursor: pointer;
-    }
-
-    .logout-btn:hover {
-        transform: scale(0.9);
-        color: rgb(191, 98, 42, 0.5);
+    .admin-pic {
+        width: 120px;
     }
 
     mat-nav-list {
@@ -50,6 +50,8 @@
         
         a {
             margin-bottom: 15%;
+            margin-left: 5px;
+            width: 11rem;
         }
 
         a:hover {
@@ -61,7 +63,7 @@
         .list-item-active {
             background: #BF622A;
             border-radius: 5px;
-            box-shadow: 3px 2px 8px 0 rgb(0, 0, 0, 0.25);
+            box-shadow: 3px 2px 5px 0 rgb(0, 0, 0, 0.25);
 
             span {
                 color: #f4f4f4;
@@ -91,5 +93,9 @@ mat-toolbar {
         font-weight: bold;
         margin-left: 10px;
     }
+
+    .spacer {
+        flex: 1 1 auto;
+      }
 }
 

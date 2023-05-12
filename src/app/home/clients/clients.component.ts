@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, Validators} from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -152,6 +152,8 @@ export class ClientsComponent {
       console.log(`Dialog result: ${result}`);
     });
   }
+  /** END -- DIALOGS */
+  
 }
 
 // BUILDS AND RETURNS A NEW USER
@@ -174,6 +176,7 @@ function createNewUser(_id: number): UserData {
   templateUrl: 'addclient-dialog.html',
 })
 export class AddclientDialog {}
+/** END -- ADD NEW CLIENT DIALOG */
 
 /** ADD NEW CLIENT'S PET DIALOG */
 @Component({
@@ -187,6 +190,7 @@ export class AddpetDialog {
     {name: 'Male'},
   ];
 }
+/** END -- ADD NEW CLIENT'S PET DIALOG */
 
 /** ADD SCHED DIALOG */
 @Component({
@@ -199,10 +203,12 @@ export class AddschedDialog {
     {vaxx: 'Vaccination'},
     {vaxx: 'Deworming'},
     {vaxx: 'Heartworm Prevention'},
+    {vaxx: 'Other Treatment'},
   ];
 
   myDatePicker: any;
 }
+/** END -- ADD SCHED DIALOG */
 
 /** PET HEALTH HISTORY DIALOG */
 @Component({
@@ -215,8 +221,10 @@ export class AddhealthDialog {
     {vaxx: 'Vaccination'},
     {vaxx: 'Deworming'},
     {vaxx: 'Heartworm Prevention'},
+    {vaxx: 'Other Treatment'},
   ];
 }
+/** END -- PET HEALTH HISTORY DIALOG */
 
 
             /** HEALTH HISTORY DIALOGS — VAXX, DEWORM, HWP */
@@ -226,7 +234,6 @@ export class AddhealthDialog {
   templateUrl: 'vaccination-dialog.html',
 })
 export class VaccinationDialog {
-  // For Vaccination Pagination
   displayedColumns: string[] = ['name', 'weight', 'date'];
   dataSource = new MatTableDataSource<History>(HISTORIES_DATA);
 
@@ -237,6 +244,7 @@ export class VaccinationDialog {
     this.dataSource.paginator = this.paginator;
   }
 }
+/** END -- FOR VACCINATION DIALOG */
 
 /** FOR DEWORMING DIALOG */
 @Component({
@@ -244,7 +252,6 @@ export class VaccinationDialog {
   templateUrl: 'deworming-dialog.html',
 })
 export class DewormingDialog {
-  // For Deworming Pagination
   displayedColumns: string[] = ['name', 'weight', 'date'];
   dataSource = new MatTableDataSource<History>(HISTORIES_DATA);
 
@@ -255,6 +262,7 @@ export class DewormingDialog {
     this.dataSource.paginator = this.paginator;
   }
 }
+/** END -- FOR DEWORMING DIALOG */
 
 /** FOR HEARTWORM DIALOG */
 @Component({
@@ -262,7 +270,6 @@ export class DewormingDialog {
   templateUrl: 'heartworm-dialog.html',
 })
 export class HeartwormDialog {
-  // For Heartworm Pagination
   displayedColumns: string[] = ['name', 'weight', 'date'];
   dataSource = new MatTableDataSource<History>(HISTORIES_DATA);
 
@@ -273,6 +280,7 @@ export class HeartwormDialog {
     this.dataSource.paginator = this.paginator;
   }
 }
+/** END -- FOR HEARTWORM DIALOG */
 
 /** FOR TREATMENTS DIALOG */
 @Component({
@@ -280,7 +288,6 @@ export class HeartwormDialog {
   templateUrl: 'treatments-dialog.html',
 })
 export class TreatmentsDialog {
-  // For Treatments Pagination
   displayedColumns: string[] = ['name', 'weight', 'date'];
   dataSource = new MatTableDataSource<History>(HISTORIES_DATA);
 
@@ -311,3 +318,4 @@ const HISTORIES_DATA: History[] = [
   { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
   { name: 'Nobivac', weight: '6.8', date: '04-30-2022'},
 ];
+/** END -- FOR TREATMENTS DIALOG */
