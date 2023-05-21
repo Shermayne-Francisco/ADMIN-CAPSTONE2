@@ -16,11 +16,10 @@ import { MatSelectModule } from '@angular/material/select';
   
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ClientsComponent, AddclientDialog, AddpetDialog, AddschedDialog, AddhealthDialog,
+import { ClientsComponent, AddschedDialog, AddhealthDialog,
   VaccinationDialog, DewormingDialog, HeartwormDialog, TreatmentsDialog } from './home/clients/clients.component';
-import { DashboardComponent, PendingDialog, RequestDialog, ClientsDialog } from './home/dashboard/dashboard.component';
+import { DashboardComponent, PendingDialog, ClientsDialog } from './home/dashboard/dashboard.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
-
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -31,8 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
 
     ClientsComponent,
-    AddclientDialog,
-    AddpetDialog,
     AddschedDialog,
     AddhealthDialog,
 
@@ -43,10 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
 
     DashboardComponent,
     PendingDialog,
-    RequestDialog,
     ClientsDialog,
 
-    AppointmentsComponent
+    AppointmentsComponent,
   ],
   imports: [
     BrowserModule,

@@ -139,41 +139,41 @@ const PENDING_DATA: Pending[] = [
 
 
 /** REQUESTS PAGINATION */ 
-@Component({
-  selector: 'request-dialog',
-  templateUrl: 'request-dialog.html',
-})
-export class RequestDialog implements OnInit{
-  filteredData: any[] = [];
+// @Component({
+//   selector: 'request-dialog',
+//   templateUrl: 'request-dialog.html',
+// })
+// export class RequestDialog implements OnInit{
+//   filteredData: any[] = [];
 
-  constructor(
-    public dialog: MatDialog,
-    private session: SessionService,
-    private post: PostService 
-  ){}
+//   constructor(
+//     public dialog: MatDialog,
+//     private session: SessionService,
+//     private post: PostService 
+//   ){}
 
-  ngOnInit() {
-    this.getRequestAppointment();
-  }
+//   ngOnInit() {
+//     this.getRequestAppointment();
+//   }
   
-  getRequestAppointment() {
-    let data = {
-      user_id: null,
-      status: 'Pending'
-    };
+  // getRequestAppointment() {
+  //   let data = {
+  //     user_id: null,
+  //     status: 'Pending'
+  //   };
 
-    this.post.postData('getRequestAppointment', JSON.stringify(data)).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.filteredData = response.payload;
-        console.log(response.payload) // Assign response data to filteredData
-      },
-      (error: any) => {
-        console.log('Error fetching request appointment:', error);
-      }
-    );
-  }
-}
+  //   this.post.postData('getRequestAppointment', JSON.stringify(data)).subscribe(
+  //     (response: any) => {
+  //       console.log(response);
+  //       this.filteredData = response.payload;
+  //       console.log(response.payload) // Assign response data to filteredData
+  //     },
+  //     (error: any) => {
+  //       console.log('Error fetching request appointment:', error);
+  //     }
+  //   );
+  // }
+// }
 
 
 /** CLIENTS PAGINATION */ 
@@ -228,5 +228,5 @@ export interface Clients {
 }
 
 const CLIENTS_DATA: Clients[] = [
-  {id: 3, name: 'Piolo Paras', pet: 'Akio'},
+  // {id: 3, name: 'Piolo Paras', pet: 'Akio'},
 ];

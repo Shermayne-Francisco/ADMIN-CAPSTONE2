@@ -1,0 +1,32 @@
+.requests-div {
+    margin: 2%;
+}
+
+.requests-table {
+    background-color: #f3efe0;
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+        border: 1px solid #D1C770;
+        padding: 8px;
+        text-align: center;
+    }
+}
+  
+select {
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    // background-color: #f3efe0;
+}
+
+option {
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+}
+
+  

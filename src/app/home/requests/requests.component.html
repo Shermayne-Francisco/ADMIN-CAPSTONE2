@@ -1,0 +1,84 @@
+<div class="requests-container">
+    <div class="requests-div">
+        <table class="requests-table">
+            <thead>
+                <tr>
+                    <th>Owner Name</th>
+                    <th>Pet Name</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container > <!-- *ngIf="filteredData.length" -->
+                    <!-- <tr *ngFor="let data of filteredData">
+                        <td>{{data.user_fname}} {{data.user_lname}}</td>
+                        <td>{{ data.pet_name }}</td>
+                        <td>{{ data.app_type }}</td>
+                        <td>{{ data.app_date }}</td>
+                        <td>{{ data.app_time }}</td>
+                        <td>{{ data.status }}
+                            <select> 
+                                 <option value="pending">Pending</option> 
+                                <option value="accept">Accept</option>
+                                <option value="decline">Decline</option>
+                                <option value="onhold">Onhold</option>
+                            </select>
+                        </td>
+                    </tr> -->
+
+                      <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>04-12-2023</td>
+                        <td>12:00:00</td>
+                        <td>
+                            <select> 
+                                <option value="0">Pending</option> 
+                                <option value="1">Accept</option>
+                                <option value="2">Decline</option>
+                                <option value="3">In Progress</option>
+                                <option value="3">Completed</option>
+                            </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Berglunds snabbköp</td>
+                        <td>Christina Berglund</td>
+                        <td>Sweden</td>
+                        <td>04-12-2023</td>
+                        <td>12:00:00</td>
+                        <td>
+                            <select> 
+                                <option value="0">Pending</option> 
+                                <option value="1">Accept</option>
+                                <option value="2">Decline</option>
+                                <option value="3">In Progress</option>
+                                <option value="3">Completed</option>
+                            </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Centro comercial Moctezuma</td>
+                        <td>Francisco Chang</td>
+                        <td>Mexico</td>
+                        <td>04-12-2023</td>
+                        <td>12:00:00</td>
+                        <td>
+                            <select> 
+                                <option value="0">Pending</option> 
+                                <option value="1">Accept</option>
+                                <option value="2">Decline</option>
+                                <option value="3">In Progress</option>
+                                <option value="3">Completed</option>
+                            </select>
+                        </td>
+                      </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

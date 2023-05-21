@@ -6,10 +6,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 
-//FOR ADD PET DIALOG
-interface AddPet {
-  name: string;
-}
 
 // FOR ADD SCHED AND HEALTH HISTORY DIALOG
 interface Vaccine {
@@ -56,6 +52,7 @@ export class ClientsComponent {
   //CLIENTS' LISTS PAGINATION
   displayedColumns: string[] = ['name'];
   dataSource: MatTableDataSource<UserData>;
+  
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -89,22 +86,6 @@ export class ClientsComponent {
   }
 
   /** DIALOGS */
-  addClient() {
-    const dialogRef = this.dialog.open(AddclientDialog);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  addPet() {
-    const dialogRef = this.dialog.open(AddpetDialog);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
   addSched() { 
     const dialogRef = this.dialog.open(AddschedDialog);
 
@@ -170,28 +151,6 @@ function createNewUser(_id: number): UserData {
   };
 }
 
-
-/** ADD NEW CLIENT DIALOG */
-@Component({
-  selector: 'addclient-dialog',
-  templateUrl: 'addclient-dialog.html',
-})
-export class AddclientDialog {}
-/** END -- ADD NEW CLIENT DIALOG */
-
-/** ADD NEW CLIENT'S PET DIALOG */
-@Component({
-  selector: 'addpet-dialog',
-  templateUrl: 'addpet-dialog.html',
-})
-export class AddpetDialog {
-  typeControl = new FormControl<AddPet | null>(null, Validators.required);
-  addpets: AddPet[] = [
-    {name: 'Female'},
-    {name: 'Male'},
-  ];
-}
-/** END -- ADD NEW CLIENT'S PET DIALOG */
 
 /** ADD SCHED DIALOG */
 @Component({

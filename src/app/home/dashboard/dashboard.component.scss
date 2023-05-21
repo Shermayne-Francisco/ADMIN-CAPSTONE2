@@ -24,8 +24,8 @@
         }
 
         mat-card {
-            height: 25vh;
-            width: 18vw;
+            height: 22vh;
+            width: 16vw;
 
             mat-card-header {
                 display: flex;
@@ -50,20 +50,14 @@
             }
 
             mat-card-content {
-                margin-top: 12%;
+                margin-top: 14%;
 
-                h1, p, a {
+                h1 {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     font-size: 50px;
                     font-weight: 500;
-                }
-
-                p, a {
-                    margin-top: 10%;
-                    font-size: 15px;
-                    font-weight: normal;
                 }
             }
         }
@@ -87,7 +81,6 @@
     mat-form-field {
         width: 40%;
         max-height: 8vh;
-        // height: 30px;
     }
 }
 

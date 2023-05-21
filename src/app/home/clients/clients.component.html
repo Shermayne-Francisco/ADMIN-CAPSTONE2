@@ -1,12 +1,6 @@
 <div class="clientlist-container">
   <div id="card-container">
     <mat-card class="list-card">
-      <!-- ADD NEW CLIENT -->
-      <button mat-fab extended class="addnew-icon" (click)="addClient()">                            
-        <mat-icon>add</mat-icon>
-        New Client
-      </button> 
-      
         <!-- CLIENTS' LIST TABLE -->
       <mat-form-field class="filter-field" appearance="outline" color="accent">
         <mat-label>Search Client</mat-label>
@@ -27,10 +21,11 @@
           </tr>
         </mat-table>
 
-        <mat-paginator  [pageSizeOptions]="[7]"></mat-paginator>
+        <mat-paginator  [pageSizeOptions]="[10]"></mat-paginator>
     </mat-card>
   </div>
 
+    <!-- CLIENT DETAILS CARD -->
     <mat-card class="client-info">
       <mat-card-header>Client Information</mat-card-header>
       <hr color="#bf622a" width="100%">
@@ -55,17 +50,12 @@
         </mat-card-content>
       </mat-card>
         
-      <!-- FOR CLIENTS' PETS -->
+      <!-- CLIENTS' PETS -->
       <div class="pet-card">
         <mat-card-header>Pets</mat-card-header>
-        <div class="addpet-btn" color="accent">
-          <button mat-icon-button class="add-icon" (click)="addPet()">
-            <mat-icon>add</mat-icon>
-          </button>
-        </div>
         <hr color="#bf622a" width="100%">
 
-        <!-- FOR PET'S DETAILS VIEWING -->
+        <!-- PET'S DETAILS SECTION -->
         <mat-accordion class="pet-panel">
           <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
@@ -78,43 +68,40 @@
                 Akio
               </mat-panel-description>
             </mat-expansion-panel-header>
-
-              <mat-card class="pet-details"> <!-- SPECIFIC PET DETAILS -->
-                <mat-card-content>
-                  <p>Color/Markings 
-                    <span>: Brown</span>
-                  </p>
-                  <p>Breed
-                    <span>: Shih Tzu</span>
-                  </p>
-                  <p>Birthdate 
-                    <span>: 03 June 2021</span>
-                  </p>
-                  <p>Gender 
-                    <span>: Male</span>
-                  </p>
-                  
-                  <div class="health-btn">
-                    <button mat-flat-button [matMenuTriggerFor]="beforeMenu" color="accent">Health History</button>
-                      <mat-menu #beforeMenu="matMenu" xPosition="before">
-                        <button mat-menu-item (click)="vaxxDialog()">Vaccination</button>
-                        <button mat-menu-item (click)="dewormDialog()">Deworming</button>
-                        <button mat-menu-item (click)="hwpDialog()">Heartworm Prevention</button>
-                        <button mat-menu-item (click)="otherDialog()">Other Treatments</button>
-                      </mat-menu>
-                  </div>
-                  <div class="healthinfo-btn">
-                    <button mat-flat-button color="accent" (click)="addHealth()">
-                      Add Health Info
-                    </button>
-                  </div>
-                  <div class="sched-btn">
-                    <button mat-flat-button color="accent" (click)="addSched()">
-                      Appoint Pet
-                    </button>
-                  </div>
-                </mat-card-content>
-              </mat-card>
+              
+              <!-- SPECIFIC PET DETAILS -->
+              <p>Color/Markings 
+                <span>: Brown</span>
+              </p>
+              <p>Breed
+                <span>: Shih Tzu</span>
+              </p>
+              <p>Birthdate 
+                <span>: 03 June 2021</span>
+              </p>
+              <p>Gender 
+                <span>: Male</span>
+              </p>
+              
+              <div class="health-btn">
+                <button mat-flat-button [matMenuTriggerFor]="beforeMenu" color="accent">Health History</button>
+                  <mat-menu #beforeMenu="matMenu" xPosition="before">
+                    <button mat-menu-item (click)="vaxxDialog()">Vaccination</button>
+                    <button mat-menu-item (click)="dewormDialog()">Deworming</button>
+                    <button mat-menu-item (click)="hwpDialog()">Heartworm Prevention</button>
+                    <button mat-menu-item (click)="otherDialog()">Other Treatments</button>
+                  </mat-menu>
+              </div>
+              <div class="healthinfo-btn">
+                <button mat-flat-button color="accent" (click)="addHealth()">
+                  Add Health Info
+                </button>
+              </div>
+              <div class="sched-btn">
+                <button mat-flat-button color="accent" (click)="addSched()">
+                  Appoint Pet
+                </button>
+              </div>
           </mat-expansion-panel>
         </mat-accordion>  
       </div>
