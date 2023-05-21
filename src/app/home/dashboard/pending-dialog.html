@@ -6,49 +6,79 @@
 </mat-dialog-actions>
 
 <!-- DIALOG CONTAINER -->
-<mat-dialog-content class="dialog-container">
+<div class="dialog-container">
+    <div class="pending-dialog">
+        <table class="pending-table">
+            <thead>
+            <tr>
+                <th>Owner Name</th>
+                <th>Pet Name</th>
+                <th>Type of Treament</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container > <!-- *ngIf="filteredData.length" -->
+                <tr > <!-- *ngFor="let data of filteredData" -->
+                    <!-- <td>{{ data.user_id}} {{data.user_fname}} {{data.user_lname}}</td>
+                    <td>{{ data.pet_id }}</td>
+                    <td>{{ data.app_type }}</td>
+                    <td>{{ data.app_date }}</td>
+                    <td>{{ data.app_time }}</td>
+                    <td>{{ data.status }}</td> -->
+                </tr>
+            </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<!-- <mat-dialog-content class="dialog-container">
     <div class="pending-dialog mat-elevation-z4">
-        <table mat-table [dataSource]="dataSource">
+        <table mat-table [dataSource]="dataSource"> -->
 
         <!-- ID Column -->
-        <ng-container matColumnDef="id">
-            
+        <!-- <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> ID </th>
             <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
+        </ng-container> -->
     
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
+        <!-- <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Owner Name </th>
             <td mat-cell *matCellDef="let element"> {{element.name}} </td>
         </ng-container>
-    
+     -->
         <!-- Pet Name Column -->
-        <ng-container matColumnDef="pet">
+        <!-- <ng-container matColumnDef="pet">
             <th mat-header-cell *matHeaderCellDef> Pet Name </th>
             <td mat-cell *matCellDef="let element"> {{element.pet}} </td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Type of Vaccine Column -->
-        <ng-container matColumnDef="petType">
+        <!-- <ng-container matColumnDef="petType">
             <th mat-header-cell *matHeaderCellDef> Vaccine Type </th>
             <td mat-cell *matCellDef="let element"> {{element.vaccineType}} </td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Date Column -->
-        <ng-container matColumnDef="date">
+        <!-- <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> Date </th>
             <td mat-cell *matCellDef="let element"> {{element.date}} </td>
         </ng-container>
-    
+     -->
         <!-- Time Column -->
-        <ng-container matColumnDef="time">
+        <!-- <ng-container matColumnDef="time">
             <th mat-header-cell *matHeaderCellDef> Time </th>
             <td mat-cell *matCellDef="let element"> {{element.time}} </td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Status Column -->
-        <ng-container matColumnDef="status">
+        <!-- <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef> Status </th>
             <td mat-cell *matCellDef="let element"> {{element.status}} </td>
         </ng-container>
@@ -59,4 +89,4 @@
     
         <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
     </div>
-</mat-dialog-content>
+</mat-dialog-content> -->

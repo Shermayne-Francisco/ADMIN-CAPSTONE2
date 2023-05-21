@@ -8,10 +8,17 @@ import { SessionService } from '../services/session.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  
+  sessionData: any =  this.sessionService.getSessionData();
+  name:any = JSON.parse(this.sessionData).admin_name;
+  email:any = JSON.parse(this.sessionData).email;
+
   constructor(
     private router: Router,
     private sessionService: SessionService,
-  ){}
+  ){
+    console.log(name);
+  }
 
     logout(){
       this.sessionService.deleteData();

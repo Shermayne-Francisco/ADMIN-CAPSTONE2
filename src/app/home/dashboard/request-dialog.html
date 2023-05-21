@@ -6,48 +6,82 @@
 </mat-dialog-actions>
 
 <!-- DIALOG CONTAINER -->
-<mat-dialog-content class="dialog-container">
+<div class="dialog-container">
     <div class="request-dialog">
-        <table mat-table [dataSource]="dataSource">
+        <table class="request-table">
+            <thead>
+                <tr>
+                    <th>Owner Name</th>
+                    <th>Pet Name</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="filteredData.length">
+                    <tr *ngFor="let data of filteredData">
+                        <td>{{data.user_fname}} {{data.user_lname}}</td>
+                        <td>{{ data.pet_name }}</td>
+                        <td>{{ data.app_type }}</td>
+                        <td>{{ data.app_date }}</td>
+                        <td>{{ data.app_time }}</td>
+                        <td>{{ data.status }}
+                            <select> 
+                                <!-- <option value="pending">Pending</option> -->
+                                <option value="accept">Accept</option>
+                                <option value="decline">Decline</option>
+                                <option value="onhold">Onhold</option>
+                            </select>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-        <!-- ID Column -->
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> ID </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
+
+
+
+<!-- <mat-dialog-content class="dialog-container"> -->
+<!-- </mat-dialog-content> -->
+<!-- Name Column -->
+        <!-- <ng-container matColumnDef="name"> -->
+            <!-- <div class="name">
+                <th mat-header-cell *matHeaderCellDef> Owner Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.user_id}} </td>
+            </div> -->
     
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Owner Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
+        <!-- </ng-container> -->
     
         <!-- Pet Name Column -->
-        <ng-container matColumnDef="pet">
+        <!-- <ng-container matColumnDef="pet">
             <th mat-header-cell *matHeaderCellDef> Pet Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.pet}} </td>
-        </ng-container>
+            <td mat-cell *matCellDef="let element"> {{element.pet_id}} </td>
+        </ng-container> -->
     
         <!-- Service Column -->
-        <ng-container matColumnDef="service">
+        <!-- <ng-container matColumnDef="service">
             <th mat-header-cell *matHeaderCellDef> Service </th>
-            <td mat-cell *matCellDef="let element"> {{element.service}} </td>
-        </ng-container>
+            <td mat-cell *matCellDef="let element"> {{element.app_type}} </td>
+        </ng-container> -->
 
         <!-- Date Column -->
-        <ng-container matColumnDef="date">
+        <!-- <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef> Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-        </ng-container>
+            <td mat-cell *matCellDef="let element"> {{element.app_date}} </td>
+        </ng-container> -->
     
         <!-- Time Column -->
-        <ng-container matColumnDef="time">
+        <!-- <ng-container matColumnDef="time">
             <th mat-header-cell *matHeaderCellDef> Time </th>
-            <td mat-cell *matCellDef="let element"> {{element.time}} </td>
-        </ng-container>
+            <td mat-cell *matCellDef="let element"> {{element.app_time}} </td>
+        </ng-container> -->
 
         <!-- Status Column -->
-        <ng-container matColumnDef="status">
+        <!-- <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef> Status </th>
             <td mat-cell *matCellDef="let element">
                 <mat-select [(ngModel)]="element.status"> 
@@ -57,12 +91,10 @@
                     <mat-option value="decline">On hold</mat-option>
                 </mat-select>
             </td>
-        </ng-container>
+        </ng-container> -->
         
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    
-        <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
-    </div>        
-</mat-dialog-content>
+        <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns4"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns4;"></tr> -->
+
+        <!-- <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator> -->
+    <!-- </div>         -->

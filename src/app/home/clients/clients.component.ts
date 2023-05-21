@@ -156,6 +156,7 @@ export class ClientsComponent {
   
 }
 
+/** TABLE LIST PAGINATION */
 // BUILDS AND RETURNS A NEW USER
 function createNewUser(_id: number): UserData {
   const name =

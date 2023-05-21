@@ -1,13 +1,10 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
-// FOR EDIT ACTION DIALOG
-interface Action {
-  name: string;
-}
+import { SessionService } from 'src/app/services/session.service';
+import { PostService } from 'src/app/services/post.service';
 
 
 @Component({
@@ -15,27 +12,33 @@ interface Action {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements AfterViewInit {
-  // FOR ALL APPOINTMENTS PAGINATION
-  displayedColumns: string[] = ['id', 'name', 'pet', 'service', 'date', 'time', 'status', 'actions'];
-  dataSource = new MatTableDataSource<AllAppointments>(ELEMENT_DATA);
-
+export class DashboardComponent implements AfterViewInit, OnInit {
+  displayedColumns: string[] = ['name', 'pet', 'service', 'date', 'time', 'status', 'actions'];
+  dataSource2 = new MatTableDataSource<AllAppointments>(ELEMENT_DATA);
+  
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-
+  countRequest: any;
+  requestData:any;
+  countRequest3: any;
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+ 
+    this.dataSource2.paginator = this.paginator;
   }
 
   // FOR EDIT ACTION, PENDING, AND REQUESTS DIALOG
-  constructor(public dialog: MatDialog) {}
-    editDialog() {
-      const dialogRef = this.dialog.open(EditActionDialog)
-        
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
+  constructor(public post: PostService,public dialog: MatDialog,private session: SessionService) {}
+  ngOnInit() {
+   this.getAllAppointments();
+  }
+
+  getAllAppointments(){
+    this.post.postData('getAllAppointments', JSON.stringify(ELEMENT_DATA))
+    .subscribe((response: any) => {
+      this.dataSource2 = response.payload;
+    })
+  }
+    
 
     pending() {
       const dialogRef = this.dialog.open(PendingDialog)
@@ -45,26 +48,52 @@ export class DashboardComponent implements AfterViewInit {
       });
     }
 
-    request() {
-      const dialogRef = this.dialog.open(RequestDialog)
+    // request() {
+    //   const dialogRef = this.dialog.open(RequestDialog)
         
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
+    //   dialogRef.afterClosed().subscribe(result => {
+    //     console.log(`Dialog result: ${result}`);
+        
+    //     {
+    //       let data = {
+    //         user_id: null,
+    //         status: 'Pending'
+    //       };
+      
+    //       this.post.postData('getRequestAppointment', JSON.stringify(data))
+    //       .subscribe((response: any) => {
+    //         console.log(response);
+    //         this.countRequest = response.payload[1];
+    //         this.requestData = response.payload[0];
+    //       })
+    //     }
+      
+    //   });
+    // }
 
-    clients() {
-      const dialogRef = this.dialog.open(ClientsDialog)
+    // clients() {
+    //   const dialogRef = this.dialog.open(ClientsDialog)
         
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
+    //   dialogRef.afterClosed().subscribe(result => {
+    //     console.log(`Dialog result: ${result}`);
+    //     {
+    //       let data = {
+    //         user_id: null,
+    //       };
+
+    //       this.post.postData('getAllClients', JSON.stringify(data))
+    //       .subscribe((response: any) => {
+    //         // console.log(response);
+    //         this.countRequest3 = response.payload[1];
+    //         this.requestData = response.payload[0];
+    //       })
+    //     }
+    //   });
+    // }
 }
 
 // CONTENTS OF ALL APPOINTMENTS PAGINATION
 export interface AllAppointments {
-  id: number;
   name: string;
   pet: string;
   service: string;
@@ -73,36 +102,8 @@ export interface AllAppointments {
   status: string;
 }
 
-const ELEMENT_DATA: AllAppointments[] = [
-  {id: 1, name: 'Shermayne Francisco', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'In progress'},
-  {id: 2, name: 'Lola Lapid', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'Pending'},
-  {id: 3, name: 'Piolo Paras',pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'Delayed'},
-  {id: 4, name: 'Paulo Paras', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'Cancelled'},
-  {id: 5, name: 'Adrian Montallana', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'Done'},
-  {id: 6, name: 'Kristiane Dizon', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'In progress'},
-  {id: 7, name: 'Mirasol Dela Cruz', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'In progress'},
-  {id: 8, name: 'Edrian Francisco', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'In progress'},
-  {id: 9, name: 'Neil Bitangcol', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'In progress'},
-  {id: 10, name: 'Nicole Villa', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'In progress'},
-];
+const ELEMENT_DATA: AllAppointments[] = [];
 
-/** EDIT ACTION DIALOG */
-@Component({
-  selector: 'edit-action-dialog',
-  templateUrl: 'edit-action-dialog.html',
-})
-export class EditActionDialog {
-  typeControl = new FormControl<Action | null>(null, Validators.required);
-  actions: Action[] = [
-    {name: 'In Progress'},
-    {name: 'Pending'},
-    {name: 'Delayed'},
-    {name: 'Cancelled'},
-    {name: 'Done'},
-  ];
-
-  myDatePicker: any;
-}
 
 /** PENDING PAGINATION */
 @Component({
@@ -110,8 +111,7 @@ export class EditActionDialog {
   templateUrl: 'pending-dialog.html',
 })
 export class PendingDialog implements AfterViewInit {
-  // FOR PENDING PAGINATION
-  displayedColumns: string[] = ['id', 'name', 'pet', 'date', 'time', 'status'];
+  displayedColumns: string[] = ['name', 'pet', 'vaccineType', 'date', 'time', 'status'];
   dataSource = new MatTableDataSource<Pending>(PENDING_DATA);
 
   @ViewChild(MatPaginator)
@@ -122,76 +122,103 @@ export class PendingDialog implements AfterViewInit {
   }
 }
 
-  // CONTENTS OF PENDING PAGINATION
-  export interface Pending {
-    id: number;
-    name: string;
-    pet: string;
-    vaccineType: string;
-    date: string;
-    time: string;
-    status: string;
-  }
+// CONTENTS OF PENDING PAGINATION
+export interface Pending {
+  name: string;
+  pet: string;
+  vaccineType: string;
+  date: string;
+  time: string;
+  status: string;
+}
 
-  const PENDING_DATA: Pending[] = [
-    {id: 1, name: 'Shermayne Francisco', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Cancelled'},
-    {id: 2, name: 'Lola Lapid', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Accepted'},
-    {id: 3, name: 'Piolo Paras',pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Cancelled'},
-    {id: 4, name: 'Paulo Paras', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Accepted'},
-    {id: 5, name: 'Adrian Montallana', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Cancelled'},
-    {id: 6, name: 'Kristiane Dizon', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Accepted'},
-    {id: 7, name: 'Mirasol Dela Cruz', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Cancelled'},
-    {id: 8, name: 'Edrian Francisc', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Cancelled'},
-    {id: 9, name: 'Neil Bitangcol', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Accepted'},
-    {id: 10, name: 'Nicole Villa', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Accepted'},
-  ];
+const PENDING_DATA: Pending[] = [
+  {name: 'Shermayne Francisco', pet: 'Akio', date: '4/12/2023', time: '12:30', vaccineType: 'Deworming', status: 'Cancelled'},
+  
+];
+
 
 /** REQUESTS PAGINATION */ 
 @Component({
   selector: 'request-dialog',
   templateUrl: 'request-dialog.html',
 })
-export class RequestDialog implements AfterViewInit {
-  // FOR REQUESTS PAGINATION 
-  displayedColumns: string[] = [ 'id', 'name', 'pet', 'service', 'date', 'time', 'status'];
-  dataSource = new MatTableDataSource([
-    {id: 1, name: 'Shermayne Francisco', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 2, name: 'Lola Lapid', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 3, name: 'Piolo Paras',pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 4, name: 'Paulo Paras', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 5, name: 'Adrian Montallana', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 6, name: 'Kristiane Dizon', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 7, name: 'Mirasol Dela Cruz', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 8, name: 'Edrian Francisc', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 9, name: 'Neil Bitangcol', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-    {id: 10, name: 'Nicole Villa', pet: 'Akio', service: 'Grooming', date: '4/12/2023', time: '12:30 PM', status: 'pending'},
-  ]);
+export class RequestDialog implements OnInit{
+  filteredData: any[] = [];
 
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
+  constructor(
+    public dialog: MatDialog,
+    private session: SessionService,
+    private post: PostService 
+  ){}
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  ngOnInit() {
+    this.getRequestAppointment();
+  }
+  
+  getRequestAppointment() {
+    let data = {
+      user_id: null,
+      status: 'Pending'
+    };
+
+    this.post.postData('getRequestAppointment', JSON.stringify(data)).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.filteredData = response.payload;
+        console.log(response.payload) // Assign response data to filteredData
+      },
+      (error: any) => {
+        console.log('Error fetching request appointment:', error);
+      }
+    );
   }
 }
+
 
 /** CLIENTS PAGINATION */ 
 @Component({
   selector: 'clients-dialog',
   templateUrl: 'clients-dialog.html',
 })
-export class ClientsDialog implements AfterViewInit {
-  // FOR CLIENTS PAGINATION 
+export class ClientsDialog implements AfterViewInit, OnInit {
+  filteredData: any[] = [];
   displayedColumns: string[] = ['id', 'name', 'pet'];
-  dataSource = new MatTableDataSource<Clients>(CLIENTS_DATA);
+  dataSource3 = new MatTableDataSource<Clients>(CLIENTS_DATA);
+
+  constructor(
+    private post: PostService
+  ){}
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-
+  countRequest: any;
+  requestData:any;
+  
+  ngOnInit() {
+    this.getAllClients();
+  }
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.dataSource3.paginator = this.paginator;
+  }
+  getAllClients(){
+    let data = {
+      user_id: null,
+      status: 'Pending'
+    };
+
+    this.post.postData('getAllClients', JSON.stringify(data)).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.filteredData = response.payload[0]; // Assign response data to filteredData
+      },
+      (error: any) => {
+        console.log('Error fetching request appointment:', error);
+      }
+    );
   }
 }
+
 
 // CONTENTS OF CLIENTS PAGINATION
 export interface Clients {
@@ -201,14 +228,5 @@ export interface Clients {
 }
 
 const CLIENTS_DATA: Clients[] = [
-  {id: 1, name: 'Shermayne Francisco', pet: 'Akio'},
-  {id: 2, name: 'Lola Lapid', pet: 'Akio'},
-  {id: 3, name: 'Piolo Paras',pet: 'Akio'},
-  {id: 4, name: 'Paulo Paras', pet: 'Akio'},
-  {id: 5, name: 'Adrian Montallana', pet: 'Akio'},
-  {id: 6, name: 'Kristiane Dizon', pet: 'Akio'},
-  {id: 7, name: 'Mirasol Dela Cruz', pet: 'Akio'},
-  {id: 8, name: 'Edrian Francisc', pet: 'Akio'},
-  {id: 9, name: 'Neil Bitangcol', pet: 'Akio'},
-  {id: 10, name: 'Nicole Villa', pet: 'Akio'},
+  {id: 3, name: 'Piolo Paras', pet: 'Akio'},
 ];

@@ -36,14 +36,9 @@ export class LoginComponent {
     };
     console.log(loginData);
   
-    this.post.postData('Login', JSON.stringify(loginData))
+    this.post.postData('Admin_Login', JSON.stringify(loginData))
     .subscribe((response: any) => {
-      let payload = {
-        // extract only the data you need from the response
-        user: response.payload.user,
-        token: response.payload.token
-      };
-      this.session.uploadToSession(JSON.stringify(payload));
+      this.session.uploadToSession(JSON.stringify(response.payload));
       this.router.navigate(['/home/dashboard']);
     })
   };
