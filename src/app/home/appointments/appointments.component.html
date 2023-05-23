@@ -14,42 +14,44 @@
           </button>
         </div>
 
+        <div id="history" #history>
           <table mat-table [dataSource]="dataSource" >
           
             <!-- Name Column  -->
             <ng-container matColumnDef="name">
               <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+              <mat-cell *matCellDef="let element">{{element.user_fname}} {{element.user_lname}}</mat-cell>
             </ng-container>
           
             <!-- Pet Column  -->
             <ng-container matColumnDef="pet">
               <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
+              <mat-cell *matCellDef="let element">{{element.pet_name}}</mat-cell>
             </ng-container>
 
             <!-- Weight Column  -->
             <ng-container matColumnDef="weight">
               <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
+              <mat-cell *matCellDef="let element">{{element.pet_weight}}</mat-cell>
             </ng-container>
           
             <!-- Date Admitted Column  -->
             <ng-container matColumnDef="dateAdmitted">
               <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
+              <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
             </ng-container>
 
             <!-- Date Completed Column  -->
             <ng-container matColumnDef="dateCompleted">
               <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
+              <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
           </table>
-          
+        </div>
+        
           <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>  
       </mat-tab>
 
@@ -66,43 +68,45 @@
           </button>
         </div>
     
-          <table mat-table [dataSource]="dataSource">
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource1">
           
-            <!-- Name Column  -->
-            <ng-container matColumnDef="name">
-              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-            </ng-container>
-          
-            <!-- Pet Column  -->
-            <ng-container matColumnDef="pet">
-              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-            </ng-container>
+               <!-- Name Column  -->
+               <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.user_fname}} {{element.user_lname}}</mat-cell>
+              </ng-container>
+            
+              <!-- Pet Column  -->
+              <ng-container matColumnDef="pet">
+                <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.pet_name}}</mat-cell>
+              </ng-container>
+  
+              <!-- Weight Column  -->
+              <ng-container matColumnDef="weight">
+                <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.pet_weight}}</mat-cell>
+              </ng-container>
+            
+              <!-- Date Admitted Column  -->
+              <ng-container matColumnDef="dateAdmitted">
+                <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
+              </ng-container>
+  
+              <!-- Date Completed Column  -->
+              <ng-container matColumnDef="dateCompleted">
+                <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
+              </ng-container>
 
-            <!-- Weight Column  -->
-            <ng-container matColumnDef="weight">
-              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-            </ng-container>
-          
-            <!-- Date Admitted Column  -->
-            <ng-container matColumnDef="dateAdmitted">
-              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-            </ng-container>
-
-            <!-- Date Completed Column  -->
-            <ng-container matColumnDef="dateCompleted">
-              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-            </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <mat-header-row *matHeaderRowDef="displayedColumns1"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns1;"></mat-row>
           </table>
+        </div>
 
-          <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+          <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>
       </mat-tab>
 
       
@@ -118,43 +122,45 @@
           </button>
         </div>
     
-          <table mat-table [dataSource]="dataSource">
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource2">
           
-            <!-- Name Column  -->
-            <ng-container matColumnDef="name">
-              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-            </ng-container>
-          
-            <!-- Pet Column  -->
-            <ng-container matColumnDef="pet">
-              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-            </ng-container>
+               <!-- Name Column  -->
+               <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.user_fname}} {{element.user_lname}}</mat-cell>
+              </ng-container>
+            
+              <!-- Pet Column  -->
+              <ng-container matColumnDef="pet">
+                <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.pet_name}}</mat-cell>
+              </ng-container>
+  
+              <!-- Weight Column  -->
+              <ng-container matColumnDef="weight">
+                <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.pet_weight}}</mat-cell>
+              </ng-container>
+            
+              <!-- Date Admitted Column  -->
+              <ng-container matColumnDef="dateAdmitted">
+                <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
+              </ng-container>
+  
+              <!-- Date Completed Column  -->
+              <ng-container matColumnDef="dateCompleted">
+                <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
+              </ng-container>
 
-            <!-- Weight Column  -->
-            <ng-container matColumnDef="weight">
-              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-            </ng-container>
-          
-            <!-- Date Admitted Column  -->
-            <ng-container matColumnDef="dateAdmitted">
-              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-            </ng-container>
-
-            <!-- Date Completed Column  -->
-            <ng-container matColumnDef="dateCompleted">
-              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-            </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
           </table>
+        </div>
 
-          <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+          <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>
       </mat-tab>
 
 
@@ -170,43 +176,45 @@
           </button>
         </div>
     
-          <table mat-table [dataSource]="dataSource">
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource3">
           
-            <!-- Name Column  -->
-            <ng-container matColumnDef="name">
-              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-            </ng-container>
-          
-            <!-- Pet Column  -->
-            <ng-container matColumnDef="pet">
-              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-            </ng-container>
+                <!-- Name Column  -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.user_fname}} {{element.user_lname}}</mat-cell>
+                </ng-container>
+              
+                <!-- Pet Column  -->
+                <ng-container matColumnDef="pet">
+                  <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.pet_name}}</mat-cell>
+                </ng-container>
+    
+                <!-- Weight Column  -->
+                <ng-container matColumnDef="weight">
+                  <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.pet_weight}}</mat-cell>
+                </ng-container>
+              
+                <!-- Date Admitted Column  -->
+                <ng-container matColumnDef="dateAdmitted">
+                  <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
+                </ng-container>
+    
+                <!-- Date Completed Column  -->
+                <ng-container matColumnDef="dateCompleted">
+                  <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
+                </ng-container>
 
-            <!-- Weight Column  -->
-            <ng-container matColumnDef="weight">
-              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-            </ng-container>
-          
-            <!-- Date Admitted Column  -->
-            <ng-container matColumnDef="dateAdmitted">
-              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-            </ng-container>
-
-            <!-- Date Completed Column  -->
-            <ng-container matColumnDef="dateCompleted">
-              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-            </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <mat-header-row *matHeaderRowDef="displayedColumns3"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns3;"></mat-row>
           </table>
+        </div>
 
-          <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+          <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>
       </mat-tab>
 
 
@@ -222,43 +230,45 @@
           </button>
         </div>
     
-          <table mat-table [dataSource]="dataSource">
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource4">
           
-            <!-- Name Column  -->
-            <ng-container matColumnDef="name">
-              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-            </ng-container>
-          
-            <!-- Pet Column  -->
-            <ng-container matColumnDef="pet">
-              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-            </ng-container>
+                <!-- Name Column  -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.user_fname}} {{element.user_lname}}</mat-cell>
+                </ng-container>
+              
+                <!-- Pet Column  -->
+                <ng-container matColumnDef="pet">
+                  <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.pet_name}}</mat-cell>
+                </ng-container>
+    
+                <!-- Weight Column  -->
+                <ng-container matColumnDef="weight">
+                  <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.pet_weight}}</mat-cell>
+                </ng-container>
+              
+                <!-- Date Admitted Column  -->
+                <ng-container matColumnDef="dateAdmitted">
+                  <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
+                </ng-container>
+    
+                <!-- Date Completed Column  -->
+                <ng-container matColumnDef="dateCompleted">
+                  <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.app_date}}</mat-cell>
+                </ng-container>
 
-            <!-- Weight Column  -->
-            <ng-container matColumnDef="weight">
-              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-            </ng-container>
-          
-            <!-- Date Admitted Column  -->
-            <ng-container matColumnDef="dateAdmitted">
-              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-            </ng-container>
-
-            <!-- Date Completed Column  -->
-            <ng-container matColumnDef="dateCompleted">
-              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-            </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <mat-header-row *matHeaderRowDef="displayedColumns4"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns4;"></mat-row>
           </table>
+        </div>
 
-          <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+          <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>
       </mat-tab>
     </mat-tab-group>
   </mat-card>
