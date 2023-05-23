@@ -18,11 +18,14 @@ export class DashboardComponent implements AfterViewInit, OnInit {
   
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  countRequest: any;
-  requestData:any;
-  countRequest3: any;
-  ngAfterViewInit() {
  
+  completedCount: number = 0;
+  countClients: number = 0;
+  schedPending: number = 0;
+  requestsCount: number = 0;
+
+ 
+  ngAfterViewInit() {
     this.dataSource2.paginator = this.paginator;
   }
 
@@ -30,66 +33,52 @@ export class DashboardComponent implements AfterViewInit, OnInit {
   constructor(public post: PostService,public dialog: MatDialog,private session: SessionService) {}
   ngOnInit() {
    this.getAllAppointments();
+   this.getAllCompleted();
+   this.getAllClients();
+   this.getAllPending();
+   this.getAllRequest();
   }
 
-  getAllAppointments(){
+  getAllAppointments() {
     this.post.postData('getAllAppointments', JSON.stringify(ELEMENT_DATA))
-    .subscribe((response: any) => {
-      this.dataSource2 = response.payload;
-    })
-  }
-    
-
-    pending() {
-      const dialogRef = this.dialog.open(PendingDialog)
-        
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+      .subscribe((response: any) => {
+        const appointments = response.payload; 
+        this.dataSource2.data = appointments; 
+        this.dataSource2.paginator = this.paginator;
       });
-    }
+  }
 
-    // request() {
-    //   const dialogRef = this.dialog.open(RequestDialog)
-        
-    //   dialogRef.afterClosed().subscribe(result => {
-    //     console.log(`Dialog result: ${result}`);
-        
-    //     {
-    //       let data = {
-    //         user_id: null,
-    //         status: 'Pending'
-    //       };
-      
-    //       this.post.postData('getRequestAppointment', JSON.stringify(data))
-    //       .subscribe((response: any) => {
-    //         console.log(response);
-    //         this.countRequest = response.payload[1];
-    //         this.requestData = response.payload[0];
-    //       })
-    //     }
-      
-    //   });
-    // }
+  getAllCompleted() {
+  this.post.postData('getAllCompleted', JSON.stringify({}))
+    .subscribe((response: any) => {
+      this.completedCount = response.payload[0]['count(*)'] || 0;
+    });
+  }
 
-    // clients() {
-    //   const dialogRef = this.dialog.open(ClientsDialog)
-        
-    //   dialogRef.afterClosed().subscribe(result => {
-    //     console.log(`Dialog result: ${result}`);
-    //     {
-    //       let data = {
-    //         user_id: null,
-    //       };
+  getAllClients(){
+    this.post.postData('getAllClients', JSON.stringify({}))
+    .subscribe((response: any) => {
+      this.countClients = response.payload[0]['count(*)'] || 0;
+    });
+  }
 
-    //       this.post.postData('getAllClients', JSON.stringify(data))
-    //       .subscribe((response: any) => {
-    //         // console.log(response);
-    //         this.countRequest3 = response.payload[1];
-    //         this.requestData = response.payload[0];
-    //       })
-    //     }
-    //   });
-    // }
+  getAllPending(){
+    this.post.postData('getAllPending', JSON.stringify({}))
+    .subscribe((response: any) => {
+      this.schedPending = response.payload[0]['count(*)'] || 0;
+    });
+  }
+
+  getAllRequest(){
+    this.post.postData('getAllRequest', JSON.stringify({}))
+    .subscribe((response: any) => {
+      console.log(response)
+      this.requestsCount = response.payload[0]['count(*)'] || 0;
+     
+    });
+  }
+
+
 }
 
 // CONTENTS OF ALL APPOINTMENTS PAGINATION

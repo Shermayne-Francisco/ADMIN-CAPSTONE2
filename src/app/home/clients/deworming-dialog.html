@@ -1,29 +1,80 @@
 <!-- CLOSE ACTION -->
 <mat-dialog-actions align="end" class="close-bar">
-    <p mat-dialog-title class="history">Deworming History</p>
+    <!-- <p mat-dialog-title class="health">Deworming History</p> -->
+    <h2 mat-dialog-title>Health History</h2>
     <mat-icon mat-dialog-close class="close-btn">close</mat-icon>
     <hr color="#bf622a" width="100%">
   </mat-dialog-actions>
   
   <!-- DIALOG CONTAINER -->
-  <mat-dialog-content class="dialog-container">
+  <div class="health-container">
+    <div class="health-div">
+        <table class="health-table">
+            <thead>
+                <tr>
+                    <th>Medicine Name</th>
+                    <th>Pet Weight</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container > <!-- *ngIf="filteredData.length" -->
+                    <!-- <tr *ngFor="let data of filteredData">
+                        <td>{{data.user_fname}} {{data.user_lname}}</td>
+                        <td>{{ data.pet_name }}</td>
+                        <td>{{ data.app_type }}</td>
+                        <td>{{ data.app_date }}</td>
+                        <td>{{ data.app_time }}</td>
+                        <td>{{ data.status }}
+                            <select> 
+                                 <option value="pending">Pending</option> 
+                                <option value="accept">Accept</option>
+                                <option value="decline">Decline</option>
+                                <option value="onhold">Onhold</option>
+                            </select>
+                        </td>
+                    </tr> -->
+
+                      <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>6.7kg</td>
+                        <td>04-12-2023</td>
+                      </tr>
+                      <tr>
+                        <td>Berglunds snabbköp</td>
+                        <td>6.7kg</td>
+                        <td>04-12-2023</td>
+                      </tr>
+                      <tr>
+                        <td>Centro comercial Moctezuma</td>
+                        <td>6.7kg</td>
+                        <td>04-12-2023</td>
+                      </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+  <!-- <mat-dialog-content class="dialog-container">
     <div class="history-dialog mat-elevation-z4">
       <table mat-table [dataSource]="dataSource">
-  
+   -->
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
+      <!-- <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Medicine Name </th>
           <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+      </ng-container> -->
   
       <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
+      <!-- <ng-container matColumnDef="weight">
         <th mat-header-cell *matHeaderCellDef> Pet Weight</th>
         <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
+      </ng-container> -->
   
       <!-- Date Column -->
-      <ng-container matColumnDef="date">
+      <!-- <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef> Date </th>
           <td mat-cell *matCellDef="let element"> {{element.date}} </td>
       </ng-container>
@@ -34,4 +85,4 @@
   
       <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
   </div>
-  </mat-dialog-content>
+  </mat-dialog-content> -->

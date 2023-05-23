@@ -1,20 +1,20 @@
 <div class="clientlist-container">
   <div id="card-container">
     <mat-card class="list-card">
-        <!-- CLIENTS' LIST TABLE -->
+      <!-- CLIENTS' LIST TABLE -->
       <mat-form-field class="filter-field" appearance="outline" color="accent">
         <mat-label>Search Client</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Francisco" #input>
       </mat-form-field>
 
-        <mat-table class="table-list" [dataSource]="dataSource" matSort>
+        <mat-table class="table-list" [dataSource]="dataSource0" matSort>
           <ng-container matColumnDef="name">
             <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> LIST OF CLIENTS </mat-header-cell>
-            <mat-cell mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+            <mat-cell mat-cell *matCellDef="let row"> {{row.user_fname}} {{row.user_lname}} </mat-cell>
           </ng-container>
         
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row matRipple *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          <mat-row matRipple (click)="fetchingUser(row)" class="row-effect" *matRowDef="let row; columns: displayedColumns;"></mat-row>
           
           <tr class="mat-row" *matNoDataRow>
             <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
@@ -83,7 +83,7 @@
                 <span>: Male</span>
               </p>
               
-              <div class="health-btn">
+              <div class="health-btn"> <!-- HEALTH HISTORY DIALOGS -->
                 <button mat-flat-button [matMenuTriggerFor]="beforeMenu" color="accent">Health History</button>
                   <mat-menu #beforeMenu="matMenu" xPosition="before">
                     <button mat-menu-item (click)="vaxxDialog()">Vaccination</button>
@@ -92,12 +92,12 @@
                     <button mat-menu-item (click)="otherDialog()">Other Treatments</button>
                   </mat-menu>
               </div>
-              <div class="healthinfo-btn">
+              <div class="healthinfo-btn"> <!-- ADD HEALTH INFO DIALOG -->
                 <button mat-flat-button color="accent" (click)="addHealth()">
                   Add Health Info
                 </button>
               </div>
-              <div class="sched-btn">
+              <div class="sched-btn"> <!-- ADD SCHED DIALOGS -->
                 <button mat-flat-button color="accent" (click)="addSched()">
                   Appoint Pet
                 </button>

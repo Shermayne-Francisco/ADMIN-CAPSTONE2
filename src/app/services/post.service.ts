@@ -4,9 +4,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PostService {
-  getRequestAppointment(requestData: { user_id: string; pet_id: string; app_type: string; app_date: string; app_time: string; status: string; }) {
-    throw new Error('Method not implemented.');
-  }
+
 
   constructor(private http:HttpClient) { }
 
@@ -21,4 +19,6 @@ export class PostService {
   postNull(url:any,id:any){
     return this.http.post(this._url+url+'/'+id,null);
   }
+
+
 }

@@ -34,7 +34,6 @@ export class LoginComponent {
       email: this.email.value,
       password: this.password.value
     };
-    console.log(loginData);
   
     this.post.postData('Admin_Login', JSON.stringify(loginData))
     .subscribe((response: any) => {

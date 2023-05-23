@@ -126,3 +126,21 @@ span {
     float: right;
     margin-top: -6%;
 }
+
+// HEALTH HISTORY DIALOGS
+.health-div {
+    margin: 2%;
+}
+
+.health-table {
+    background-color: #f3efe0;
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+        border: 1px solid #D1C770;
+        padding: 8px;
+        text-align: center;
+    }
+}
+  

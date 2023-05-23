@@ -7,10 +7,10 @@
         <mat-grid-list cols="4" rowHeight="2:2">
             <mat-grid-tile>
                 <mat-card>
-                    <mat-icon>local_hospital</mat-icon>
+                    <mat-icon>done_all</mat-icon>
                     <mat-card-header>Treatments</mat-card-header>
                     <mat-card-content>
-                        <h1>12</h1>
+                        <h1>{{ completedCount }}</h1>
                         <!-- <p>04-23-2023</p> -->
                     </mat-card-content>
                 </mat-card>
@@ -21,7 +21,7 @@
                     <mat-icon>people</mat-icon>
                     <mat-card-header>Clients</mat-card-header>
                     <mat-card-content>
-                        <h1>{{countRequest3}}</h1>
+                        <h1>{{countClients}}</h1>
                     </mat-card-content>
                 </mat-card>
             </mat-grid-tile>
@@ -31,7 +31,7 @@
                     <mat-icon>schedule</mat-icon>
                     <mat-card-header>Pending</mat-card-header>
                     <mat-card-content>
-                        <h1>10</h1>
+                        <h1>{{schedPending}}</h1>
                         <!-- <a (click)="pending()">See more</a> -->
                     </mat-card-content>
                 </mat-card>
@@ -39,13 +39,15 @@
 
             <mat-grid-tile>
                 <mat-card>
-                    <mat-icon>done_all</mat-icon>
-                    <mat-card-header>Completed</mat-card-header>
-                    <mat-card-content>
-                        <h1>{{countRequest}}</h1>
-                    </mat-card-content>
+                    <mat-icon>event_available</mat-icon>
+                  <mat-card-header>Requests</mat-card-header>
+                  <mat-card-content>
+                    <h1>{{ requestsCount }}</h1>
+                  </mat-card-content>
                 </mat-card>
-            </mat-grid-tile>
+              </mat-grid-tile>
+              
+              
         </mat-grid-list>
 
         <!-- CURRENT APPOINTMENTS -->

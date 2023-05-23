@@ -1,9 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { PostService } from 'src/app/services/post.service';
+import { SessionService } from 'src/app/services/session.service';
 
 
 
@@ -18,26 +20,8 @@ export interface UserData {
 }
 
 // CONSTANTS USED TO FILL UP THE DATABASE
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
+const NAMES: UserData[] = [
+  {name: 'Maia'}, {name: 'Shen'}, {name: 'Koala'},
 ];
 
 @Component({
@@ -45,13 +29,16 @@ const NAMES: string[] = [
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss'] 
 }) 
-export class ClientsComponent {
+export class ClientsComponent implements AfterViewInit, OnInit {
+  sessionStorage: any =  this.sessionService.getSessionData();
+  ID:any = JSON.parse(this.sessionStorage).user_id;
   panelOpenState = false;
   disableSelect = new FormControl(false);
+  
 
   //CLIENTS' LISTS PAGINATION
   displayedColumns: string[] = ['name'];
-  dataSource: MatTableDataSource<UserData>;
+  dataSource0 = new MatTableDataSource<UserData>(NAMES);
   
 
   @ViewChild(MatPaginator)
@@ -59,29 +46,66 @@ export class ClientsComponent {
   
   @ViewChild(MatSort)
   sort!: MatSort;
+  user_id: any;
 
-  constructor(public dialog: MatDialog) {
+  constructor(
+    public dialog: MatDialog,
+    private post: PostService,
+    private sessionService: SessionService
+    ) {
     /** TABLE LIST PAGINATION */
     // CREATE 100 USERS
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
-    // ASSIGN THE DATA TO THE DATA SOURCE FOR THE TABLE TO RENDER
-    this.dataSource = new MatTableDataSource(users);
+  }
 
+  ngOnInit(){
+    this.getALLClientsInfo();
+
+   
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dataSource0.paginator = this.paginator;
+    this.dataSource0.sort = this.sort;
   }
 
+  getALLClientsInfo() {
+    this.post.postData('getALLClientsInfo', JSON.stringify(NAMES))
+    .subscribe((response: any) => {
+      const clientsinfo = response.payload; 
+      this.dataSource0.data =  clientsinfo; 
+      this.dataSource0.paginator = this.paginator;
+    });
+  }
+
+  fetchingUser(row: any): void {
+    let data = {
+      user_id: row.user_id,
+      user_fname: row.user_fname,
+      user_lname: row.user_lname
+    };
+  
+    this.post.postData('getSpecificClientInfo', data).subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      (error: any) => {
+        console.error('HTTP Error:', error);
+      }
+    );
+  }
+  
+  
+
+ 
   //FILTER FIELD
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource0.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    if (this.dataSource0.paginator) {
+      this.dataSource0.paginator.firstPage();
     }
   }
 
@@ -139,17 +163,17 @@ export class ClientsComponent {
 
 /** TABLE LIST PAGINATION */
 // BUILDS AND RETURNS A NEW USER
-function createNewUser(_id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
+// function createNewUser(_id: number): UserData {
+//   const name =
+//     NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
+//     ' ' +
+//     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
+//     '.';
 
-  return {
-    name: name,
-  };
-}
+//   return {
+//     name: name,
+//   };
+// }
 
 
 /** ADD SCHED DIALOG */

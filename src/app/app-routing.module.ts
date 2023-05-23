@@ -7,6 +7,7 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { ClientsComponent } from './home/clients/clients.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
 import { RequestsComponent } from './home/requests/requests.component';
+import { PendingComponent } from './home/pending/pending.component';
 
 const routes: Routes = [
   { path: '', 
@@ -31,6 +32,9 @@ const routes: Routes = [
         },
         { path: 'requests', 
           component: RequestsComponent,
+        },
+        { path: 'pending', 
+          component: PendingComponent,
         }
       ]
   }
