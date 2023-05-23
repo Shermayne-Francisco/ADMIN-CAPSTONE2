@@ -1,8 +1,10 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ElementRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
+// import { LiveAnnouncer } from '@angular/cdk/a11y';
+// import { jsPDF } from "jspdf";
+
+
 
 // CONTENTS OF ALL APPOINTMENTS PAGINATION
 export interface Vaccination {
@@ -14,27 +16,38 @@ export interface Vaccination {
 }
 
 const VAXX_DATA: Vaccination[] = [
-  { name: 'Shermayne Francisco', pet: 'Akio', weight: '6.8', 
+  { name: 'Shermayne Francisco', pet: 'Akio', weight: '6.8kg', 
     dateAdmitted: '04-12-2023', dateCompleted: '04-12-2023'},
-
+  { name: 'Edrian Francisco', pet: 'Nazi', weight: '6.5kg', 
+  dateAdmitted: '04-12-2023', dateCompleted: '04-12-2023'},
 ];
+
+
 
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss']
 })
+export class AppointmentsComponent {
+  // @ViewChild('history', {static: false}) el!: ElementRef;
 
-export class AppointmentsComponent implements AfterViewInit {
+  //FOR PRINTING REPORTS
+  // makePDF(){
+  //   let pdf = new jsPDF('l', 'pt', [612, 792]);
+  //   pdf.html(this.el.nativeElement, {
+  //     callback: (pdf) => {
+  //        pdf.save("history.pdf");
+  //     }
+  //   })
+  // }
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  @ViewChild(MatSort)
-  sort!: MatSort;
-
+  
 
   dataSource = new MatTableDataSource<Vaccination>(VAXX_DATA);
-  displayedColumns = ['name', 'pet', 'weight', 'contact', 'address'];
+  displayedColumns = ['name', 'pet', 'weight', 'dateAdmitted', 'dateCompleted'];
 
   // tableNumber = 1;
 
@@ -42,25 +55,13 @@ export class AppointmentsComponent implements AfterViewInit {
   //   this.tableNumber = event.index + 1;
   // }
   constructor(
-    private _liveAnnouncer: LiveAnnouncer,
+    // private _liveAnnouncer: LiveAnnouncer,
   ){}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-    /** Announce the change in sort state for assistive technology. */
-    announceSortChange(sortState: Sort) {
-      if (sortState.direction) {
-        this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-      } else {
-        this._liveAnnouncer.announce('Sorting cleared');
-      }
-    }
+ 
 }
 

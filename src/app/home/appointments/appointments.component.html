@@ -5,240 +5,270 @@
       <!-- VACCINATION TAB -->
       <mat-tab label="Vaccination" class="vaxx">
         <div class="print-icon">
-          <button mat-icon-button>
+          <button mat-icon-button 
+            [useExistingCss]="true"
+            printTitle="Vaccination Reports" 
+            printSectionId="history" ngxPrint
+          >
             <mat-icon>print</mat-icon>
           </button>
         </div>
-    
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
-        
-          <!-- Name Column  -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Name</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-          </ng-container>
-        
-          <!-- Pet Column  -->
-          <ng-container matColumnDef="pet">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by pet">Pet</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-          </ng-container>
 
-          <!-- Weight Column  -->
-          <ng-container matColumnDef="weight">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">Weight</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-          </ng-container>
-        
-          <!-- Date Admitted Column  -->
-          <ng-container matColumnDef="contact">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by contact">Date Admitted</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-          </ng-container>
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource" >
+          
+            <!-- Name Column  -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+            </ng-container>
+          
+            <!-- Pet Column  -->
+            <ng-container matColumnDef="pet">
+              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
+            </ng-container>
 
-          <!-- Date Completed Column  -->
-          <ng-container matColumnDef="address">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by address">Date Completed</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-          </ng-container>
+            <!-- Weight Column  -->
+            <ng-container matColumnDef="weight">
+              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
+            </ng-container>
+          
+            <!-- Date Admitted Column  -->
+            <ng-container matColumnDef="dateAdmitted">
+              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
+            </ng-container>
 
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </table>
-        
+            <!-- Date Completed Column  -->
+            <ng-container matColumnDef="dateCompleted">
+              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </table>
+          
           <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>
+        </div>  
       </mat-tab>
 
 
       <!-- DEWORMING TAB -->
       <mat-tab label="Deworming" class="deworm">
         <div class="print-icon">
-          <button mat-icon-button>
+          <button mat-icon-button 
+            [useExistingCss]="true"
+            printTitle="Deworming Reports" 
+            printSectionId="history" ngxPrint
+          >
             <mat-icon>print</mat-icon>
           </button>
         </div>
     
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
-        
-          <!-- Name Column  -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Name</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-          </ng-container>
-        
-          <!-- Pet Column  -->
-          <ng-container matColumnDef="pet">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by pet">Pet</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-          </ng-container>
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource">
+          
+            <!-- Name Column  -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+            </ng-container>
+          
+            <!-- Pet Column  -->
+            <ng-container matColumnDef="pet">
+              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
+            </ng-container>
 
-          <!-- Weight Column  -->
-          <ng-container matColumnDef="weight">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">Weight</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-          </ng-container>
-        
-          <!-- Date Admitted Column  -->
-          <ng-container matColumnDef="contact">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by contact">Date Admitted</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-          </ng-container>
+            <!-- Weight Column  -->
+            <ng-container matColumnDef="weight">
+              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
+            </ng-container>
+          
+            <!-- Date Admitted Column  -->
+            <ng-container matColumnDef="dateAdmitted">
+              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
+            </ng-container>
 
-          <!-- Date Completed Column  -->
-          <ng-container matColumnDef="address">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by address">Date Completed</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-          </ng-container>
+            <!-- Date Completed Column  -->
+            <ng-container matColumnDef="dateCompleted">
+              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
+            </ng-container>
 
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </table>
-        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </table>
+
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+        </div>
       </mat-tab>
 
       
       <!-- HEARTWORM PREVENTION TAB -->
       <mat-tab label="Heartworm Prevention" class="hwp">
         <div class="print-icon">
-          <button mat-icon-button>
+          <button mat-icon-button 
+            [useExistingCss]="true"
+            printTitle="Heartworm Prevention Reports" 
+            printSectionId="history" ngxPrint
+          >
             <mat-icon>print</mat-icon>
           </button>
         </div>
     
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
-        
-          <!-- Name Column  -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Name</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-          </ng-container>
-        
-          <!-- Pet Column  -->
-          <ng-container matColumnDef="pet">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by pet">Pet</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-          </ng-container>
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource">
+          
+            <!-- Name Column  -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+            </ng-container>
+          
+            <!-- Pet Column  -->
+            <ng-container matColumnDef="pet">
+              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
+            </ng-container>
 
-          <!-- Weight Column  -->
-          <ng-container matColumnDef="weight">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">Weight</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-          </ng-container>
-        
-          <!-- Date Admitted Column  -->
-          <ng-container matColumnDef="contact">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by contact">Date Admitted</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-          </ng-container>
+            <!-- Weight Column  -->
+            <ng-container matColumnDef="weight">
+              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
+            </ng-container>
+          
+            <!-- Date Admitted Column  -->
+            <ng-container matColumnDef="dateAdmitted">
+              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
+            </ng-container>
 
-          <!-- Date Completed Column  -->
-          <ng-container matColumnDef="address">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by address">Date Completed</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-          </ng-container>
+            <!-- Date Completed Column  -->
+            <ng-container matColumnDef="dateCompleted">
+              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
+            </ng-container>
 
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </table>
-        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </table>
+
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+        </div>
       </mat-tab>
 
 
       <!-- GROOMING TAB -->
       <mat-tab label="Grooming" class="groom">
         <div class="print-icon">
-          <button mat-icon-button>
+          <button mat-icon-button 
+            [useExistingCss]="true"
+            printTitle="Grooming Reports" 
+            printSectionId="history" ngxPrint
+          >
             <mat-icon>print</mat-icon>
           </button>
         </div>
     
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
-        
-          <!-- Name Column  -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Name</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-          </ng-container>
-        
-          <!-- Pet Column  -->
-          <ng-container matColumnDef="pet">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by pet">Pet</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-          </ng-container>
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource">
+          
+            <!-- Name Column  -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+            </ng-container>
+          
+            <!-- Pet Column  -->
+            <ng-container matColumnDef="pet">
+              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
+            </ng-container>
 
-          <!-- Weight Column  -->
-          <ng-container matColumnDef="weight">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">Weight</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-          </ng-container>
-        
-          <!-- Date Admitted Column  -->
-          <ng-container matColumnDef="contact">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by contact">Date Admitted</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-          </ng-container>
+            <!-- Weight Column  -->
+            <ng-container matColumnDef="weight">
+              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
+            </ng-container>
+          
+            <!-- Date Admitted Column  -->
+            <ng-container matColumnDef="dateAdmitted">
+              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
+            </ng-container>
 
-          <!-- Date Completed Column  -->
-          <ng-container matColumnDef="address">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by address">Date Completed</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-          </ng-container>
+            <!-- Date Completed Column  -->
+            <ng-container matColumnDef="dateCompleted">
+              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
+            </ng-container>
 
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </table>
-        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </table>
+
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+        </div>
       </mat-tab>
 
 
       <!-- OTHER TREATMENT TAB -->
       <mat-tab label="Other Treatment" class="other">
         <div class="print-icon">
-          <button mat-icon-button>
+          <button mat-icon-button 
+            [useExistingCss]="true"
+            printTitle="Other Treatments Reports" 
+            printSectionId="history" ngxPrint
+          >
             <mat-icon>print</mat-icon>
           </button>
         </div>
     
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
-        
-          <!-- Name Column  -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Name</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
-          </ng-container>
-        
-          <!-- Pet Column  -->
-          <ng-container matColumnDef="pet">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by pet">Pet</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
-          </ng-container>
+        <div id="history" #history>
+          <table mat-table [dataSource]="dataSource">
+          
+            <!-- Name Column  -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+            </ng-container>
+          
+            <!-- Pet Column  -->
+            <ng-container matColumnDef="pet">
+              <mat-header-cell *matHeaderCellDef>Pet</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.pet}}</mat-cell>
+            </ng-container>
 
-          <!-- Weight Column  -->
-          <ng-container matColumnDef="weight">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">Weight</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
-          </ng-container>
-        
-          <!-- Date Admitted Column  -->
-          <ng-container matColumnDef="contact">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by contact">Date Admitted</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
-          </ng-container>
+            <!-- Weight Column  -->
+            <ng-container matColumnDef="weight">
+              <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
+            </ng-container>
+          
+            <!-- Date Admitted Column  -->
+            <ng-container matColumnDef="dateAdmitted">
+              <mat-header-cell *matHeaderCellDef>Date Admitted</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateAdmitted}}</mat-cell>
+            </ng-container>
 
-          <!-- Date Completed Column  -->
-          <ng-container matColumnDef="address">
-            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by address">Date Completed</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
-          </ng-container>
+            <!-- Date Completed Column  -->
+            <ng-container matColumnDef="dateCompleted">
+              <mat-header-cell *matHeaderCellDef>Date Completed</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.dateCompleted}}</mat-cell>
+            </ng-container>
 
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </table>
-        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </table>
+
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </mat-card>

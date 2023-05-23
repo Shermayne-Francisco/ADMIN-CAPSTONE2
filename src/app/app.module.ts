@@ -13,6 +13,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule,
   NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import {NgxPrintModule} from 'ngx-print';
   
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -61,6 +62,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatSelectModule,
     HttpClientModule,
+    NgxPrintModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
