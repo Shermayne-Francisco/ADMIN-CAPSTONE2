@@ -14,7 +14,6 @@
           </button>
         </div>
 
-        <div id="history" #history>
           <table mat-table [dataSource]="dataSource" >
           
             <!-- Name Column  -->
@@ -51,8 +50,7 @@
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
           </table>
           
-          <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>
-        </div>  
+          <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>  
       </mat-tab>
 
 
@@ -68,7 +66,6 @@
           </button>
         </div>
     
-        <div id="history" #history>
           <table mat-table [dataSource]="dataSource">
           
             <!-- Name Column  -->
@@ -106,7 +103,6 @@
           </table>
 
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
-        </div>
       </mat-tab>
 
       
@@ -122,7 +118,6 @@
           </button>
         </div>
     
-        <div id="history" #history>
           <table mat-table [dataSource]="dataSource">
           
             <!-- Name Column  -->
@@ -160,7 +155,6 @@
           </table>
 
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
-        </div>
       </mat-tab>
 
 
@@ -176,7 +170,6 @@
           </button>
         </div>
     
-        <div id="history" #history>
           <table mat-table [dataSource]="dataSource">
           
             <!-- Name Column  -->
@@ -214,7 +207,6 @@
           </table>
 
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
-        </div>
       </mat-tab>
 
 
@@ -230,7 +222,6 @@
           </button>
         </div>
     
-        <div id="history" #history>
           <table mat-table [dataSource]="dataSource">
           
             <!-- Name Column  -->
@@ -268,7 +259,6 @@
           </table>
 
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
-        </div>
       </mat-tab>
     </mat-tab-group>
   </mat-card>
