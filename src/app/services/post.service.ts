@@ -9,15 +9,17 @@ export class PostService {
   constructor(private http:HttpClient) { }
 
   private _url = "http://localhost/PetHealth-API/";
+  //http://localhost/PetHealth-API/
+  //https://pet-health.mleystock-pile.com/
 
   postData(url:any,data:any){
-    return this.http.post(this._url + url , data);
+    return this.http.post(this._url + url +"/" , data);
   }
   postDataID(url:any,data:any,id:any){
-    return this.http.post(this._url + url + '/'+id, data);
+    return this.http.post(this._url + url + "/" +id, data);
   }
   postNull(url:any,id:any){
-    return this.http.post(this._url+url+'/'+id,null);
+    return this.http.post(this._url + url + "/" +id,null);
   }
 
 

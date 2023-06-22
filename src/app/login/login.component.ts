@@ -38,7 +38,7 @@ export class LoginComponent {
     this.post.postData('Admin_Login', JSON.stringify(loginData))
     .subscribe((response: any) => {
       this.session.uploadToSession(JSON.stringify(response.payload));
-      this.router.navigate(['/home/dashboard']);
+      this.router.navigate(['home/dashboard']);
     })
   };
 }

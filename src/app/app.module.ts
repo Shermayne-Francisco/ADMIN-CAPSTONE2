@@ -19,9 +19,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ClientsComponent, AddschedDialog, AddhealthDialog,
   VaccinationDialog, DewormingDialog, HeartwormDialog, TreatmentsDialog } from './home/clients/clients.component';
-import { DashboardComponent, PendingDialog, ClientsDialog } from './home/dashboard/dashboard.component';
+import { DashboardComponent  } from './home/dashboard/dashboard.component';
 import { AppointmentsComponent } from './home/appointments/appointments.component';
 import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -40,8 +41,6 @@ import { HttpClientModule } from '@angular/common/http';
     TreatmentsDialog,
 
     DashboardComponent,
-    PendingDialog,
-    ClientsDialog,
 
     AppointmentsComponent,
   ],
